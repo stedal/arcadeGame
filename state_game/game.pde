@@ -1,16 +1,17 @@
 enum GameState {
-  STANDBY,
+    STANDBY,
     SHOW_RULES,
     SELECT_PLAYERS,
     RUNNING,
     FINISHED,
     NEXT_PLAYER,
+    ENTER_NAME,
     SHOW_PODIUM
 }
 
-class Game implements PlayerEventListener, ArduinoEventListener {
+public class Game implements PlayerEventListener, ArduinoEventListener {
   final int MAX_NUM_PLAYERS = 4;
-  final int turnDuration = 177000;              // duration of each turn
+  final int turnDuration = 177000; // duration of each turn
   final int holeValues[] = { 1, 2, 3, 5, 7 };
 
   int numPlayers = 1;
@@ -18,11 +19,12 @@ class Game implements PlayerEventListener, ArduinoEventListener {
   GameEventListener listener;
   Player[] players;
   int currPlayerIndex;
-
+  int top_score = 0;
   int startTime;
   int totalTime = 0;
   int pauseStartTime, totalPauseTime = 0;
   boolean paused = false;
+  TreeMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
 
   public Game(GameEventListener eventListener) {
     this.listener=eventListener;
@@ -85,8 +87,8 @@ class Game implements PlayerEventListener, ArduinoEventListener {
      if (currPlayerIndex >= numPlayers) {
       println("finished");
       setState(GameState.FINISHED);
-/*
-      if (queuedAnimations.size() == 0){
+
+      /*if (animationManager.queuedAnimations.size() == 0){
       setState(GameState.SHOW_PODIUM);
       }
       try
@@ -96,9 +98,8 @@ class Game implements PlayerEventListener, ArduinoEventListener {
       catch(InterruptedException ex)
       {
           Thread.currentThread().interrupt();
-      }
-*/
-      setState(GameState.STANDBY);
+      } */
+      //setState(GameState.STANDBY);
     } else {
       println("setting to next player");
       setState(GameState.NEXT_PLAYER);
@@ -137,6 +138,7 @@ class Game implements PlayerEventListener, ArduinoEventListener {
         setState(GameState.RUNNING);
         break;
       case FINISHED:
+        println("from state of finished, setting state to standby");
         setState(GameState.STANDBY);
         break;
       case NEXT_PLAYER: // switches back to running condition once OK button pressed
@@ -177,6 +179,7 @@ class Game implements PlayerEventListener, ArduinoEventListener {
     listener.madeShot(currPlayerIndex, pinNumber - 3);
 
     players[currPlayerIndex].addPointsToScore(points);
+    println("onShotMade finished");
   }
 
   void onShotMiss() {
@@ -199,8 +202,13 @@ class Game implements PlayerEventListener, ArduinoEventListener {
 
     // Find player(s) with the highest score
     for (int i = 0; i < players.length; i++) {
+      println("players[i]: ", players[i]);
       Player tempPlayer = players[i];
       int playerScore = tempPlayer.currentScore;
+
+      map.put(players[i].id, playerScore);
+
+      println("printing map value" , map.get(i));
 
       if (tempPlayer.currentScore > winningValue) {
         winners.clear();
@@ -210,6 +218,7 @@ class Game implements PlayerEventListener, ArduinoEventListener {
         winners.add(tempPlayer);
       }
     }
+
     if (winners.size() == 1) {
       // Added to count number of games played while program is running
 
@@ -231,10 +240,7 @@ class Game implements PlayerEventListener, ArduinoEventListener {
     }
     winners = ballWinners;
 
-
     if (winners.size() == 1) {
-      // Added to count number of games played while program is running
-
       return winners;
     }
 
@@ -254,7 +260,6 @@ class Game implements PlayerEventListener, ArduinoEventListener {
     }
     winners = timeWinners;
     // Added to count number of games played while program is running
-
 
     return winners;
   }

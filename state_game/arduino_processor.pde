@@ -56,7 +56,6 @@ class ArduinoProcessor {
       }
     }
 
-    // Why is this one on the button arduino?
     if (buttonArduino.digitalRead(8) == Arduino.LOW) {
               delay(300);
       listener.onShotMiss();

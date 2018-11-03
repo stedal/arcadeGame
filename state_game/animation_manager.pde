@@ -19,7 +19,7 @@ class AnimationManager implements GameEventListener {
 
 
 
-  AnimationManager(PApplet parent) {
+ AnimationManager(PApplet parent) {
     standby = new Movie(parent, "press_any_key_beer.mp4");
 
     bustAnimation = new Movie(parent, "pubstick_bust_animation.mp4");
@@ -64,13 +64,12 @@ class AnimationManager implements GameEventListener {
 
 
   void updatedGameState(GameState newState) {
-    println("Animation State updated: ", newState);
+    println("Game State updated: ", newState);
     gameState = newState;
 
     standby.stop();
     switch(newState) {
     case STANDBY:
-
       standby.loop();
       break;
     case FINISHED:
@@ -93,7 +92,7 @@ class AnimationManager implements GameEventListener {
         int arraylength = queuedAnimations.size();
         println(arraylength);
       } else {
-        queueAnimation(allWinVideos[4]);
+        queueAnimation(allWinVideos[4]); // This is tie video
         cycles += 1;
         }
       break;
@@ -146,8 +145,8 @@ class AnimationManager implements GameEventListener {
       } else if (currAnim != null) {
         set(0, 0, currAnim);
       }
-    } else if (gameState == GameState.STANDBY) {
-      set(0, 0, standby);
+    } else if (gameState == GameState.FINISHED) {
+      game.setState(GameState.SHOW_PODIUM);
     }
   }
 }

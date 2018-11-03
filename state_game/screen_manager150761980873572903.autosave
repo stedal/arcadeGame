@@ -5,9 +5,11 @@ class ScreenManager {
   PImage lightGolfBall;
   PImage darkGolfBall;
   PImage allPlayerScreens[] = new PImage[4];
+  PImage allPlayerNumbers[] = new PImage[4];
   PImage waitScreen;
-  PImage podiumScreen;
+  PImage allPodiumScreens[] = new PImage[4];
   Game game;
+  //List<Integer> rankList;
 
   ScreenManager(Game game) {
     rulesScreenImage = loadImage("pubstick_rules.png");
@@ -15,10 +17,13 @@ class ScreenManager {
     lightGolfBall = loadImage("golf_ball_light.png");
     darkGolfBall = loadImage("golf_ball_dark.png");
     waitScreen = loadImage("ready_next_player.png");
-    podiumScreen = loadImage("podium4.png");
     for (int i = 0; i < 4; i++) {
-      String imageToLoad = "pubstick_playerscreen_" + i + ".png";
-      allPlayerScreens[i] = loadImage(imageToLoad);
+      String imageToLoad1 = "pubstick_playerscreen_" + i + ".png";
+      allPlayerScreens[i] = loadImage(imageToLoad1);
+      String imageToLoad2 = "player" + (i) + ".png";
+      allPlayerNumbers[i] = loadImage(imageToLoad2);
+      String imageToLoad3 = "podium" + (i) + ".png";
+      allPodiumScreens[i] = loadImage(imageToLoad3);
     }
 
     initSvgDrawing();
@@ -30,8 +35,49 @@ class ScreenManager {
     set(0, 0, waitScreen);
   }
 
-  void displayPodium(){
-    set(0,0, podiumScreen);
+  void displayPodium(int number_players){
+    List<Integer> val_list = new ArrayList<Integer>(game.map.values());
+    List<Integer> key_list = new ArrayList<Integer>(game.map.keySet());
+    Collections.reverse(new ArrayList(val_list));
+
+    for (int i = 0; i < val_list.size(); i++) {
+      println("val_list contains:" + val_list.get(i) + " at position" + i);
+      //if (val_list.get(val_list.size() - i) > val_list.get(val_list.size() - i)){
+      //}
+    }
+
+    set(0,0, allPodiumScreens[number_players-1]);
+    int xLocation1 = 550;
+    int yLocation1 = 270;
+    int xLocation2 = 1055;
+    int yLocation2 = 365;
+    int xLocation3 = 180;
+    int yLocation3 = 553;
+    int xLocation4 = 1437;
+    int yLocation4 = 691;
+    switch(number_players) {
+    case 1:
+      image(allPlayerNumbers[0], xLocation1, yLocation1);
+      println("printing map " , game.map.entrySet());
+      break;
+    case 2:
+      image(allPlayerNumbers[0], xLocation1, yLocation1);
+      image(allPlayerNumbers[1], xLocation2, yLocation2);
+      break;
+    case 3:
+      image(allPlayerNumbers[0], xLocation1, yLocation1);
+      image(allPlayerNumbers[1], xLocation2, yLocation2);
+      image(allPlayerNumbers[2], xLocation3, yLocation3);
+      break;
+    case 4:
+      image(allPlayerNumbers[0], xLocation1, yLocation1);
+      image(allPlayerNumbers[1], xLocation2, yLocation2);
+      image(allPlayerNumbers[2], xLocation3, yLocation3);
+      image(allPlayerNumbers[3], xLocation4, yLocation4);
+      break;
+    default:
+      break;
+    }
   }
 
   void displayPlayerScreen() {
@@ -80,7 +126,8 @@ class ScreenManager {
       break;
     case SHOW_PODIUM:
       println("screen manager case set to SHOW_PODIUM");
-      displayPodium();
+      displayPodium(game.numPlayers);
+
       break;
     default:
       break;
