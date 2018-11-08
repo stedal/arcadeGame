@@ -25,6 +25,8 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
   int pauseStartTime, totalPauseTime = 0;
   boolean paused = false;
   TreeMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
+  int letter = 1;
+  ArrayList<Integer> letters = new ArrayList<Integer>();
 
   public Game(GameEventListener eventListener) {
     this.listener=eventListener;
@@ -88,17 +90,6 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
       println("finished");
       setState(GameState.FINISHED);
 
-      /*if (animationManager.queuedAnimations.size() == 0){
-      setState(GameState.SHOW_PODIUM);
-      }
-      try
-      {
-          Thread.sleep(1000);
-      }
-      catch(InterruptedException ex)
-      {
-          Thread.currentThread().interrupt();
-      } */
       //setState(GameState.STANDBY);
     } else {
       println("setting to next player");
@@ -137,7 +128,7 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
         this.startGame();
         setState(GameState.RUNNING);
         break;
-      case FINISHED:
+      case FINISHED: // Don't think this does anything. Only if hit OK during final movie sequence
         println("from state of finished, setting state to standby");
         setState(GameState.STANDBY);
         break;
@@ -145,6 +136,18 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
         println("Arduino Event switched to case Next Player");
         setState(GameState.RUNNING);
         startCurrPlayer();
+        break;
+      case SHOW_PODIUM:
+        setState(GameState.ENTER_NAME);
+        break;
+      case ENTER_NAME:
+
+          if (letters.size() == 3) {
+            setState(GameState.STANDBY);
+            set(0, 0, animationManager.standby);
+          }
+
+        else assignLetters();
         break;
       default:
         println("Skipping OK button, not relevant");
@@ -157,15 +160,35 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
         numPlayers = min(numPlayers + 1, MAX_NUM_PLAYERS);
         listener.numPlayersChanged(numPlayers);
       }
+      if (state == GameState.ENTER_NAME) {
+        increaseLetter();
+      }
       break;
     case REMOVE_PLAYER:
       if (state == GameState.SELECT_PLAYERS) {
         numPlayers = max(numPlayers - 1, 1);
         listener.numPlayersChanged(numPlayers);
       }
+      if (state == GameState.ENTER_NAME) {
+        decreaseLetter();
+      }
       break;
     }
   }
+  void assignLetters() {
+    letters.add(letter);
+  }
+  void decreaseLetter(){
+    if ( letter > 1 ) {
+      letter = letter - 1;
+    }
+  }
+
+  void increaseLetter(){
+    if ( letter < 26 ) {
+      letter = letter + 1;
+    }
+    }
 
   void onShotMade(int pinNumber) {
     println("Shot made. game state:", state);

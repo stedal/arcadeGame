@@ -66,7 +66,6 @@ class AnimationManager implements GameEventListener {
   void updatedGameState(GameState newState) {
     println("Game State updated: ", newState);
     gameState = newState;
-
     standby.stop();
     switch(newState) {
     case STANDBY:
@@ -145,6 +144,10 @@ class AnimationManager implements GameEventListener {
       } else if (currAnim != null) {
         set(0, 0, currAnim);
       }
+    } else if (gameState == GameState.STANDBY) {
+      set(0, 0, standby);
+      //else if (gameState == GameState.FINISHED)
+      //game.setState(GameState.SHOW_PODIUM);
     } else if (gameState == GameState.FINISHED) {
       game.setState(GameState.SHOW_PODIUM);
     }
@@ -156,87 +159,67 @@ void movieEvent(Movie m) {
 }
 
 /// Added this class in order to create file that python script can monitor
-class Logger
-{
+class Logger {
   String m_fileName;
-
-  Logger(String fileName)
-  {
+  Logger(String fileName) {
     m_fileName = fileName;
   }
 
-  void log(String line)
-  {
+  void log(String line) {
     PrintWriter pw = null;
-    try
-    {
+    try {
       pw = GetWriter();
       pw.println(line);
       println("printing from logger");
       println(line);
     }
-    catch (IOException e)
-    {
+    catch (IOException e) {
       e.printStackTrace(); // Dumb and primitive exception handling...
       println("ouch 1");
     }
-    finally
-    {
-      if (pw != null)
-      {
+    finally {
+      if (pw != null) {
         pw.close();
       }
     }
   }
 
-  void log(String[] lines)
-  {
+  void log(String[] lines) {
     PrintWriter pw = null;
-    try
-    {
+    try {
       pw = GetWriter();
-      for (int i = 0; i < lines.length; i++)
-      {
+      for (int i = 0; i < lines.length; i++) {
         pw.println(lines[i]);
       }
     }
-    catch (IOException e)
-    {
+    catch (IOException e) {
       e.printStackTrace(); // Dumb and primitive exception handling...
       println("ouch 2");
     }
-    finally
-    {
-      if (pw != null)
-      {
+    finally {
+      if (pw != null) {
         pw.close();
       }
     }
   }
 
-  void log(String errorMessage, StackTraceElement[] ste)
-  {
+  void log(String errorMessage, StackTraceElement[] ste) {
     PrintWriter pw = null;
-    try
-    {
+    try {
       pw = GetWriter();
       pw.println(errorMessage);
-      for (int i = 0; i < ste.length; i++)
-      {
+      for (int i = 0; i < ste.length; i++) {
         pw.println("\tat " + ste[i].getClassName() + "." + ste[i].getMethodName() +
           "(" + ste[i].getFileName() + ":" + ste[i].getLineNumber() + ")"
           );
       }
     }
-    catch (IOException e)
-    {
+    catch (IOException e) {
       e.printStackTrace(); // Dumb and primitive exception handling...
       println("ouch 3");
     }
-    finally
-    {
-      if (pw != null)
-      {
+    finally {
+      if (pw != null) {
         pw.close();
       }
     }

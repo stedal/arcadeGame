@@ -3,6 +3,7 @@ import processing.video.*;
 import processing.serial.*;
 import java.io.*;
 import java.util.*;
+import java.text.SimpleDateFormat;
 
 ArduinoProcessor arduinoProcessor;
 Game game;
@@ -11,6 +12,12 @@ ScreenManager screenManager;
 
 int limit_cycles = 4;
 int cycles = 0;
+String xpos;
+String ypos;
+long gameTime = System.currentTimeMillis();
+String longGameTime = Long.valueOf(gameTime).toString();
+String[] gameStats = [16];
+for (int i
 
 void setup() {
 
@@ -26,16 +33,30 @@ void setup() {
   size(1920, 1080);
   textSize(32);
   frameRate(30);
+  saveStuff(gameStats);
+}
 
+public void loadStuff(){
+  try{
+    String[] stuff = loadStrings(System.getProperty("user.dir") + File.separator + "gamestats.txt");// Can be any file type
+    xpos = stuff[0];
+    ypos = stuff[1];
+    println("xpos is ", xpos);
+  }catch(Exception e){
+    println("File doesn't exist!");
+  }
+}
+
+public void saveStuff(String[] arg){
+  //String[] stuff = {gameTime, str(ypos)};
+  saveStrings(System.getProperty("user.dir") + File.separator + "gamestats.txt", arg);
 }
 
 void draw() {
-
   arduinoProcessor.update();
-
-
   game.update();
   background(0);
+  loadStuff();
   // THIS IS THE DEBUG VIEW
   /*
   background(0);
