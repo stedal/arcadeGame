@@ -10,20 +10,21 @@ Game game;
 AnimationManager animationManager;
 ScreenManager screenManager;
 
+// limit cycles to shut down game.
 int limit_cycles = 4;
 int cycles = 0;
-String xpos;
-String ypos;
-long gameTime = System.currentTimeMillis();
+
+// setup variables for leaderboard time checking
+long gameTime = System.currentTimeMillis()/1000; // Seconds since epoch
+int day = 86400;// 86400 seconds per day
+int week = 604800; // 604800 seconds per week
+int month = 2419200; // 2419200 seconds per month
 String longGameTime = Long.valueOf(gameTime).toString();
-String[] gameStats = [16];
-for (int i
+String[] gameStats = new String[20];
 
 void setup() {
-
   animationManager = new AnimationManager(this);
   game = new Game(animationManager);
-
   screenManager = new ScreenManager(game);
     arduinoProcessor = new ArduinoProcessor (
     new Arduino(this, Arduino.list()[0], 57600), // holes
@@ -33,24 +34,103 @@ void setup() {
   size(1920, 1080);
   textSize(32);
   frameRate(30);
-  saveStuff(gameStats);
+
+  for (int i = 0; i < gameStats.length; i ++) {
+  gameStats[i] = "";
+  }
+  loadStuff();
+
 }
 
 public void loadStuff(){
   try{
-    String[] stuff = loadStrings(System.getProperty("user.dir") + File.separator + "gamestats.txt");// Can be any file type
-    xpos = stuff[0];
-    ypos = stuff[1];
-    println("xpos is ", xpos);
+    String[] gameStats = loadStrings(System.getProperty("user.dir") + File.separator + "gamestats.txt");// Can be any file type
+    String day_Time = gameStats[0];
+    String day_Score = gameStats[1];
+    String day_Balls = gameStats[2];
+    String day_Duration = gameStats[3];
+    String day_Initials = gameStats[4];
+    String week_Time = gameStats[5];
+    String week_Score = gameStats[6];
+    String week_Balls = gameStats[7];
+    String week_Duration = gameStats[8];
+    String week_Initials = gameStats[9];
+    String month_Time = gameStats[10];
+    String month_Score = gameStats[11];
+    String month_Balls = gameStats[12];
+    String month_Duration = gameStats[13];
+    String month_Initials = gameStats[14];
+    String all_Time = gameStats[15];
+    String all_Score = gameStats[16];
+    String all_Balls = gameStats[17];
+    String all_Duration = gameStats[18];
+    String all_Initials = gameStats[19];
   }catch(Exception e){
     println("File doesn't exist!");
   }
 }
 
+
+
 public void saveStuff(String[] arg){
-  //String[] stuff = {gameTime, str(ypos)};
   saveStrings(System.getProperty("user.dir") + File.separator + "gamestats.txt", arg);
 }
+
+public void getLeaderboard(){
+    ArrayList<Player> winners = game.getWinningPlayer();
+    /// Check for win over daily best
+    if (winners.get(0).currentScore >= int(gameStats[1])){ // && Integer.valueOf(longGameTime)-Integer.valueOf(gameStats[0]) < day)
+      if (winners.get(0).currentScore == int(gameStats[1])) { // If tie check for ball superiority
+        if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[2])){
+          println("Replace Day on Balls");
+          gameStats[0] = longGameTime;
+          gameStats[1] = Integer.toString(winners.get(0).currentScore);
+          gameStats[2] = Integer.toString(winners.get(0).ballsLeft);
+          gameStats[3] = Integer.toString(winners.get(0).stopTime - winners.get(0).startTime);
+          gameStats[4] = Integer.toString(game.letters.get(0))+Integer.toString(game.letters.get(1)) + Integer.toString(game.letters.get(2));
+        }
+      }
+      println("Replace Day on Score");
+      gameStats[0] = longGameTime;
+      gameStats[1] = Integer.toString(winners.get(0).currentScore);
+      gameStats[2] = Integer.toString(winners.get(0).ballsLeft);
+      gameStats[3] = Integer.toString(winners.get(0).stopTime - winners.get(0).startTime);
+      gameStats[4] = Integer.toString(game.letters.get(0))+Integer.toString(game.letters.get(1)) + Integer.toString(game.letters.get(2));
+      if ( winners.get(0).currentScore >= int(gameStats[6])) {// && Integer.valueOf(longGameTime)-Integer.valueOf(gameStats[5]) < week ) // Check for week score win
+        if (winners.get(0).currentScore == int(gameStats[0])) { // If tie check for ball superiority
+          if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[2])){
+            gameStats[5] = gameStats[0];
+            gameStats[6] = gameStats[1];
+            gameStats[7] = gameStats[2];
+            gameStats[8] = gameStats[3];
+            gameStats[9] = gameStats[4];
+          }
+        }
+        gameStats[5] = gameStats[0];
+        gameStats[6] = gameStats[1];
+        gameStats[7] = gameStats[2];
+        gameStats[8] = gameStats[3];
+        gameStats[9] = gameStats[4];
+      }
+      if ( winners.get(0).currentScore > int(gameStats[11])) {
+        gameStats[10] = gameStats[0];
+        gameStats[11] = gameStats[1];
+        gameStats[12] = gameStats[2];
+        gameStats[13] = gameStats[3];
+        gameStats[14] = gameStats[4];
+      }
+      if ( winners.get(0).currentScore > int(gameStats[16])) {
+        gameStats[15] = gameStats[0];
+        gameStats[16] = gameStats[1];
+        gameStats[17] = gameStats[2];
+        gameStats[18] = gameStats[3];
+        gameStats[19] = gameStats[4];
+      }
+    }
+  }
+
+//void writeOverDay(){
+//}
 
 void draw() {
   arduinoProcessor.update();

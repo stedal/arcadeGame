@@ -6,7 +6,8 @@ enum GameState {
     FINISHED,
     NEXT_PLAYER,
     ENTER_NAME,
-    SHOW_PODIUM
+    SHOW_PODIUM,
+    SHOW_LEADERBOARD
 }
 
 public class Game implements PlayerEventListener, ArduinoEventListener {
@@ -25,7 +26,7 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
   int pauseStartTime, totalPauseTime = 0;
   boolean paused = false;
   TreeMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
-  int letter = 1;
+  int letter = 101;
   ArrayList<Integer> letters = new ArrayList<Integer>();
 
   public Game(GameEventListener eventListener) {
@@ -141,13 +142,15 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
         setState(GameState.ENTER_NAME);
         break;
       case ENTER_NAME:
-
           if (letters.size() == 3) {
-            setState(GameState.STANDBY);
-            set(0, 0, animationManager.standby);
+            setState(GameState.SHOW_LEADERBOARD);
+            //set(0, 0, animationManager.standby);
           }
-
         else assignLetters();
+        break;
+      case SHOW_LEADERBOARD:
+        setState(GameState.STANDBY);
+        set(0, 0, animationManager.standby);
         break;
       default:
         println("Skipping OK button, not relevant");
@@ -179,13 +182,13 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
     letters.add(letter);
   }
   void decreaseLetter(){
-    if ( letter > 1 ) {
+    if ( letter > 100 ) {
       letter = letter - 1;
     }
   }
 
   void increaseLetter(){
-    if ( letter < 26 ) {
+    if ( letter < 126 ) {
       letter = letter + 1;
     }
     }
@@ -216,7 +219,6 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
   int getPointsForHole(int holeNum) {
     return holeValues[holeNum];
   }
-
 
   // Method to return the winner player at the end of game.
   ArrayList<Player> getWinningPlayer() {

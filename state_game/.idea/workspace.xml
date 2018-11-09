@@ -4,11 +4,35 @@
     <list default="true" id="4e47406c-b4c9-49b8-8826-64045505c7f7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/animation_manager.pde" beforeDir="false" afterPath="$PROJECT_DIR$/animation_manager.pde" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/9.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.pde" beforeDir="false" afterPath="$PROJECT_DIR$/game.pde" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game8219499785843946421.autosave" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/screen_manager.pde" beforeDir="false" afterPath="$PROJECT_DIR$/screen_manager.pde" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen_manager150761980873572903.autosave" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/state_game.pde" beforeDir="false" afterPath="$PROJECT_DIR$/state_game.pde" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -107,25 +131,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="pde" value="2529" />
+          <entry key="pde" value="5520" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="2529" />
+          <entry key="PLAIN_TEXT" value="5520" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.319775">
+    <splitter split-orientation="horizontal" split-proportion="0.18520121">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/game.pde">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="643">
-                  <caret line="263" column="26" lean-forward="true" selection-start-line="263" selection-start-column="26" selection-end-line="263" selection-end-column="26" />
+                <state relative-caret-position="357">
+                  <caret line="235" column="15" selection-start-line="235" selection-start-column="15" selection-end-line="235" selection-end-column="15" />
                 </state>
               </provider>
             </entry>
@@ -142,7 +166,7 @@
         </leaf>
       </split-first>
       <split-second>
-        <splitter split-orientation="horizontal" split-proportion="0.6337177">
+        <splitter split-orientation="horizontal" split-proportion="0.28996283">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="false">
@@ -157,8 +181,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/state_game.pde">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="360">
-                      <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+                    <state relative-caret-position="220">
+                      <caret line="82" column="61" lean-forward="true" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
                     </state>
                   </provider>
                 </entry>
@@ -166,8 +190,8 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/Player.pde">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="940">
-                      <caret line="47" column="32" lean-forward="true" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+                    <state relative-caret-position="540">
+                      <caret line="27" selection-start-line="27" selection-end-line="27" />
                     </state>
                   </provider>
                 </entry>
@@ -176,20 +200,20 @@
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="false">
+              <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/screen_manager.pde">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="690">
-                      <caret line="129" column="44" selection-start-line="129" selection-start-column="44" selection-end-line="129" selection-end-column="44" />
+                    <state relative-caret-position="860">
+                      <caret line="172" column="5" lean-forward="true" selection-start-line="172" selection-start-column="5" selection-end-line="172" selection-end-column="5" />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="true">
+              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/animation_manager.pde">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="20">
-                      <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
+                    <state relative-caret-position="800">
+                      <caret line="93" selection-start-line="93" selection-end-line="93" />
                     </state>
                   </provider>
                 </entry>
@@ -220,6 +244,7 @@
       <find>startGame</find>
       <find>updatedGame</find>
       <find>standby</find>
+      <find>printing map</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\86mac\git\state_game\pubstick</dir>
@@ -236,18 +261,102 @@
         <option value="$PROJECT_DIR$/svg_drawing.pde" />
         <option value="$PROJECT_DIR$/arduino_processor.pde" />
         <option value="$PROJECT_DIR$/pubstick.pde" />
-        <option value="$PROJECT_DIR$/game.pde" />
-        <option value="$PROJECT_DIR$/screen_manager.pde" />
         <option value="$PROJECT_DIR$/animation_manager.pde" />
+        <option value="$PROJECT_DIR$/game.pde" />
         <option value="$PROJECT_DIR$/state_game.pde" />
+        <option value="$PROJECT_DIR$/screen_manager.pde" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
-    <option name="width" value="2906" />
-    <option name="height" value="1826" />
+    <option name="x" value="-3153" />
+    <option name="y" value="-459" />
+    <option name="width" value="1629" />
+    <option name="height" value="974" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Code style issuesJava</id>
+          </State>
+          <State>
+            <id>Concurrency annotation issuesJava</id>
+          </State>
+          <State>
+            <id>EncapsulationJava</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>ImportsJava</id>
+          </State>
+          <State>
+            <id>Inheritance issuesJava</id>
+          </State>
+          <State>
+            <id>JUnitJava</id>
+          </State>
+          <State>
+            <id>JVM languages</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Java 9Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>Java interop issuesKotlin</id>
+          </State>
+          <State>
+            <id>Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>JavadocJava</id>
+          </State>
+          <State>
+            <id>Kotlin</id>
+          </State>
+          <State>
+            <id>LoggingJava</id>
+          </State>
+          <State>
+            <id>Numeric issuesJava</id>
+          </State>
+          <State>
+            <id>PortabilityJava</id>
+          </State>
+          <State>
+            <id>Probable bugsJava</id>
+          </State>
+          <State>
+            <id>RELAX NG</id>
+          </State>
+          <State>
+            <id>Resource managementJava</id>
+          </State>
+          <State>
+            <id>SecurityJava</id>
+          </State>
+          <State>
+            <id>Serialization issuesJava</id>
+          </State>
+          <State>
+            <id>Threading issuesJava</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+          <State>
+            <id>XSLT</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -274,6 +383,7 @@
     <property name="SearchEverywhereHistoryKey" value="listener&#9;null&#9;null&#10;next_player&#9;FILE&#9;file://C:/Users/86mac/Desktop/Flatstick Working/pubstick/data/ready_next_player.png" />
     <property name="TODO_SCOPE" value="Project Files" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Stickputt_STED_181008/pubstick/application.windows64/source/pubstick" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -309,9 +419,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1453" height="873" extended-state="6" />
+    <frame x="-3847" y="-748" width="2575" height="1415" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49949747" visible="true" weight="0.14623655" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49949747" visible="true" weight="0.08111332" />
       <window_info id="Structure" order="1" sideWeight="0.5005025" side_tool="true" weight="0.13200796" />
       <window_info id="Designer" order="2" />
       <window_info id="Learn" order="3" />
@@ -358,38 +469,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screen_manager.pde">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="129" column="44" selection-start-line="129" selection-start-column="44" selection-end-line="129" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Player.pde">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="940">
-          <caret line="47" column="32" lean-forward="true" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+        <state relative-caret-position="540">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/game.pde">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="263" column="26" lean-forward="true" selection-start-line="263" selection-start-column="26" selection-end-line="263" selection-end-column="26" />
+        <state relative-caret-position="357">
+          <caret line="235" column="15" selection-start-line="235" selection-start-column="15" selection-end-line="235" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/animation_manager.pde">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
+        <state relative-caret-position="800">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/state_game.pde">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        <state relative-caret-position="220">
+          <caret line="82" column="61" lean-forward="true" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screen_manager.pde">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="860">
+          <caret line="172" column="5" lean-forward="true" selection-start-line="172" selection-start-column="5" selection-end-line="172" selection-end-column="5" />
         </state>
       </provider>
     </entry>

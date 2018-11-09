@@ -82,6 +82,7 @@ class AnimationManager implements GameEventListener {
       ArrayList<Player> winners = game.getWinningPlayer();
       if (winners.size() == 1) {
         int playerIndex = winners.get(0).id;
+
         queueAnimation(allWinVideos[playerIndex]);
         println("increasing cycle count");
         cycles += 1;
@@ -90,6 +91,7 @@ class AnimationManager implements GameEventListener {
         println("queued animations length");
         int arraylength = queuedAnimations.size();
         println(arraylength);
+
       } else {
         queueAnimation(allWinVideos[4]); // This is tie video
         cycles += 1;

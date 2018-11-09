@@ -5,6 +5,7 @@ class ScreenManager {
   PImage lightGolfBall;
   PImage darkGolfBall;
   PImage enterName;
+  PImage leaderBoard;
   PImage allPlayerScreens[] = new PImage[4];
   PImage allPlayerNumbers[] = new PImage[4];
   PImage waitScreen;
@@ -19,6 +20,7 @@ class ScreenManager {
     darkGolfBall = loadImage("golf_ball_dark.png");
     waitScreen = loadImage("ready_next_player.png");
     enterName = loadImage("enter_name.png");
+    leaderBoard = loadImage("leaderboard.png");
     for (int i = 0; i < 4; i++) {
       String imageToLoad1 = "pubstick_playerscreen_" + i + ".png";
       allPlayerScreens[i] = loadImage(imageToLoad1);
@@ -27,9 +29,9 @@ class ScreenManager {
       String imageToLoad3 = "podium" + (i) + ".png";
       allPodiumScreens[i] = loadImage(imageToLoad3);
     }
-    for (int i = 1; i < 27; i++) {
+    for (int i = 101; i < 127; i++) {
       String letterToLoad = (i) + ".png";
-      allLetters[i] = loadImage(letterToLoad);
+      allLetters[i-100] = loadImage(letterToLoad);
     }
 
     initSvgDrawing();
@@ -117,32 +119,34 @@ class ScreenManager {
    if (game.letters.size() >= 0) {
      switch(game.letters.size()){
        case 0:
-         image(allLetters[game.letter], 832, 550);
+         image(allLetters[game.letter-100], 832, 550);
          println("case 0");
          break;
        case 1:
-         image(allLetters[game.letter], 924, 550);
-         image(allLetters[game.letters.get(0)], 832, 550);
+         image(allLetters[game.letter-100], 924, 550);
+         image(allLetters[game.letters.get(0)-100], 832, 550);
          println("case 1");
          break;
        case 2:
          println("case 2");
-         image(allLetters[game.letter], 1016, 550);
-         image(allLetters[game.letters.get(0)], 832, 550);
-         image(allLetters[game.letters.get(1)], 924, 550);
+         image(allLetters[game.letter-100], 1016, 550);
+         image(allLetters[game.letters.get(0)-100], 832, 550);
+         image(allLetters[game.letters.get(1)-100], 924, 550);
          break;
        case 3:
-         image(allLetters[game.letters.get(0)], 832, 550);
-         image(allLetters[game.letters.get(1)], 924, 550);
-         image(allLetters[game.letters.get(2)], 1016, 550);
+         image(allLetters[game.letters.get(0)-100], 832, 550);
+         image(allLetters[game.letters.get(1)-100], 924, 550);
+         image(allLetters[game.letters.get(2)-100], 1016, 550);
          for (int i = 0; i < game.letters.size(); i++) {
            println("game.letters at " + i + " =" + game.letters.get(i));
          }
-
+         getLeaderboard();
+         saveStuff(gameStats);
          break;
      }
    }
   }
+
   void displayImageBallsRemaining() {
     int xLocation = 1780;
     int yLocation = 965;
@@ -150,6 +154,22 @@ class ScreenManager {
     for (int i = 0; i < game.currentPlayer().ballsLeft; i++) {
       image(lightGolfBall, xLocation, yLocation);
       yLocation = yLocation - 90;
+    }
+  }
+
+  void showLeaders() {
+    int xLocations[] = {113-36, 636-36, 1128-36, 1608-36};
+    int yLocation = 570;
+
+    int dailyBest[] = {Integer.valueOf(gameStats[4].substring(0,3))- 100, Integer.valueOf(gameStats[4].substring(3,6))- 100, Integer.valueOf(gameStats[4].substring(6,9))- 100};
+    int weeklyBest[] = {Integer.valueOf(gameStats[9].substring(0,3))- 100, Integer.valueOf(gameStats[9].substring(3,6))- 100, Integer.valueOf(gameStats[9].substring(6,9))- 100};
+    int monthlyBest[] = {Integer.valueOf(gameStats[14].substring(0,3))- 100, Integer.valueOf(gameStats[14].substring(3,6))- 100, Integer.valueOf(gameStats[14].substring(6,9))- 100};
+    int allTimeBest[] = {Integer.valueOf(gameStats[19].substring(0,3))- 100, Integer.valueOf(gameStats[19].substring(3,6))- 100, Integer.valueOf(gameStats[19].substring(6,9))- 100};
+    int[][] initials = { dailyBest, weeklyBest, monthlyBest, allTimeBest};
+    for (int j = 0; j < 4; j++) {
+      for (int i = 0; i < 3; i++) {
+        image(allLetters[initials[j][i]], xLocations[j]+i*92, yLocation);
+      }
     }
   }
 
@@ -181,6 +201,10 @@ class ScreenManager {
       println("show enter name screen");
       set(0, 0, enterName);
       enterNameScreen();
+      break;
+    case SHOW_LEADERBOARD:
+      set(0, 0, leaderBoard);
+      showLeaders();
       break;
     default:
       break;
