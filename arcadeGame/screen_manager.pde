@@ -115,20 +115,20 @@ class ScreenManager {
    // the selected initials below
 
 
-   println("game.letters.size = ", game.letters.size());
+   //println("game.letters.size = ", game.letters.size());
    if (game.letters.size() >= 0) {
      switch(game.letters.size()){
        case 0:
          image(allLetters[game.letter-100], 832, 550);
-         println("case 0");
+        // println("case 0");
          break;
        case 1:
          image(allLetters[game.letter-100], 924, 550);
          image(allLetters[game.letters.get(0)-100], 832, 550);
-         println("case 1");
+         //println("case 1");
          break;
        case 2:
-         println("case 2");
+        // println("case 2");
          image(allLetters[game.letter-100], 1016, 550);
          image(allLetters[game.letters.get(0)-100], 832, 550);
          image(allLetters[game.letters.get(1)-100], 924, 550);
@@ -137,9 +137,9 @@ class ScreenManager {
          image(allLetters[game.letters.get(0)-100], 832, 550);
          image(allLetters[game.letters.get(1)-100], 924, 550);
          image(allLetters[game.letters.get(2)-100], 1016, 550);
-         for (int i = 0; i < game.letters.size(); i++) {
-           println("game.letters at " + i + " =" + game.letters.get(i));
-         }
+         //for (int i = 0; i < game.letters.size(); i++) {
+         //  println("game.letters at " + i + " =" + game.letters.get(i));
+         //}
          getLeaderboard();
          saveStuff(gameStats);
          break;
@@ -198,7 +198,7 @@ class ScreenManager {
       displayPodium(game.numPlayers);
       break;
     case ENTER_NAME:
-      println("show enter name screen");
+      //println("show enter name screen");
       set(0, 0, enterName);
       enterNameScreen();
       break;

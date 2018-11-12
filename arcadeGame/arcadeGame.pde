@@ -4,6 +4,8 @@ import processing.serial.*;
 import java.io.*;
 import java.util.*;
 import java.text.SimpleDateFormat;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 ArduinoProcessor arduinoProcessor;
 Game game;
@@ -16,11 +18,15 @@ int cycles = 0;
 
 // setup variables for leaderboard time checking
 long gameTime = System.currentTimeMillis()/1000; // Seconds since epoch
-int day = 86400;// 86400 seconds per day
-int week = 604800; // 604800 seconds per week
-int month = 2419200; // 2419200 seconds per month
+int day = 86400;  // 86400 seconds per day
+int week = 604800;  // 604800 seconds per week
+int month = 2419200;  // 2419200 seconds per month
 String longGameTime = Long.valueOf(gameTime).toString();
 String[] gameStats = new String[20];
+int[] dayStats = new int[5];
+int[] weekStats = new int[5];
+int[] monthStats = new int[5];
+int[] allTimeStats = new int[5];
 
 void setup() {
   animationManager = new AnimationManager(this);
@@ -38,105 +44,17 @@ void setup() {
   for (int i = 0; i < gameStats.length; i ++) {
   gameStats[i] = "";
   }
-  loadStuff();
+
+  println("ran setup");
 
 }
 
-public void loadStuff(){
-  try{
-    String[] gameStats = loadStrings(System.getProperty("user.dir") + File.separator + "gamestats.txt");// Can be any file type
-    String day_Time = gameStats[0];
-    String day_Score = gameStats[1];
-    String day_Balls = gameStats[2];
-    String day_Duration = gameStats[3];
-    String day_Initials = gameStats[4];
-    String week_Time = gameStats[5];
-    String week_Score = gameStats[6];
-    String week_Balls = gameStats[7];
-    String week_Duration = gameStats[8];
-    String week_Initials = gameStats[9];
-    String month_Time = gameStats[10];
-    String month_Score = gameStats[11];
-    String month_Balls = gameStats[12];
-    String month_Duration = gameStats[13];
-    String month_Initials = gameStats[14];
-    String all_Time = gameStats[15];
-    String all_Score = gameStats[16];
-    String all_Balls = gameStats[17];
-    String all_Duration = gameStats[18];
-    String all_Initials = gameStats[19];
-  }catch(Exception e){
-    println("File doesn't exist!");
-  }
-}
 
-
-
-public void saveStuff(String[] arg){
-  saveStrings(System.getProperty("user.dir") + File.separator + "gamestats.txt", arg);
-}
-
-public void getLeaderboard(){
-    ArrayList<Player> winners = game.getWinningPlayer();
-    /// Check for win over daily best
-    if (winners.get(0).currentScore >= int(gameStats[1])){ // && Integer.valueOf(longGameTime)-Integer.valueOf(gameStats[0]) < day)
-      if (winners.get(0).currentScore == int(gameStats[1])) { // If tie check for ball superiority
-        if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[2])){
-          println("Replace Day on Balls");
-          gameStats[0] = longGameTime;
-          gameStats[1] = Integer.toString(winners.get(0).currentScore);
-          gameStats[2] = Integer.toString(winners.get(0).ballsLeft);
-          gameStats[3] = Integer.toString(winners.get(0).stopTime - winners.get(0).startTime);
-          gameStats[4] = Integer.toString(game.letters.get(0))+Integer.toString(game.letters.get(1)) + Integer.toString(game.letters.get(2));
-        }
-      }
-      println("Replace Day on Score");
-      gameStats[0] = longGameTime;
-      gameStats[1] = Integer.toString(winners.get(0).currentScore);
-      gameStats[2] = Integer.toString(winners.get(0).ballsLeft);
-      gameStats[3] = Integer.toString(winners.get(0).stopTime - winners.get(0).startTime);
-      gameStats[4] = Integer.toString(game.letters.get(0))+Integer.toString(game.letters.get(1)) + Integer.toString(game.letters.get(2));
-      if ( winners.get(0).currentScore >= int(gameStats[6])) {// && Integer.valueOf(longGameTime)-Integer.valueOf(gameStats[5]) < week ) // Check for week score win
-        if (winners.get(0).currentScore == int(gameStats[0])) { // If tie check for ball superiority
-          if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[2])){
-            gameStats[5] = gameStats[0];
-            gameStats[6] = gameStats[1];
-            gameStats[7] = gameStats[2];
-            gameStats[8] = gameStats[3];
-            gameStats[9] = gameStats[4];
-          }
-        }
-        gameStats[5] = gameStats[0];
-        gameStats[6] = gameStats[1];
-        gameStats[7] = gameStats[2];
-        gameStats[8] = gameStats[3];
-        gameStats[9] = gameStats[4];
-      }
-      if ( winners.get(0).currentScore > int(gameStats[11])) {
-        gameStats[10] = gameStats[0];
-        gameStats[11] = gameStats[1];
-        gameStats[12] = gameStats[2];
-        gameStats[13] = gameStats[3];
-        gameStats[14] = gameStats[4];
-      }
-      if ( winners.get(0).currentScore > int(gameStats[16])) {
-        gameStats[15] = gameStats[0];
-        gameStats[16] = gameStats[1];
-        gameStats[17] = gameStats[2];
-        gameStats[18] = gameStats[3];
-        gameStats[19] = gameStats[4];
-      }
-    }
-  }
-
-//void writeOverDay(){
-//}
 
 void draw() {
   arduinoProcessor.update();
   game.update();
   background(0);
-  loadStuff();
   // THIS IS THE DEBUG VIEW
   /*
   background(0);
@@ -192,6 +110,141 @@ interface PlayerEventListener {
   void blackjack();
 }
 
+public void loadStuff(){
+  try{
+    gameStats = loadStrings(System.getProperty("user.dir") + File.separator + "gamestats.txt");// Can be any file type
+    println("did this work?/");
+    for (int i = 0; i < gameStats.length; i++) {
+        println("printing gameStats at " + i + gameStats[i]);
+        }
+    /*
+    String day_Time = gameStats[0];
+    String day_Score = gameStats[1];
+    String day_Balls = gameStats[2];
+    String day_Duration = gameStats[3];
+    String day_Initials = gameStats[4];
+
+    String week_Time = gameStats[5];
+    String week_Score = gameStats[6];
+    String week_Balls = gameStats[7];
+    String week_Duration = gameStats[8];
+    String week_Initials = gameStats[9];
+
+    String month_Time = gameStats[10];
+    String month_Score = gameStats[11];
+    String month_Balls = gameStats[12];
+    String month_Duration = gameStats[13];
+    String month_Initials = gameStats[14];
+
+    String all_Time = gameStats[15];
+    String all_Score = gameStats[16];
+    String all_Balls = gameStats[17];
+    String all_Duration = gameStats[18];
+    String all_Initials = gameStats[19];
+    */
+  }catch(Exception e){
+    println("File doesn't exist!");
+  }
+}
+
+public void saveStuff(String[] arg){
+  saveStrings(System.getProperty("user.dir") + File.separator + "gamestats.txt", arg);
+}
+
+public int timeSincePlayed() {
+int gameTime = Integer.valueOf(longGameTime) - Integer.valueOf(gameStats[0]);
+println(" time since played is ", gameTime);
+return gameTime;
+}
+
+public void overWriteDay(){
+    ArrayList<Player> winners = game.getWinningPlayer();
+    gameStats[0] = longGameTime;
+    gameStats[1] = Integer.toString(winners.get(0).currentScore);
+    gameStats[2] = Integer.toString(winners.get(0).ballsLeft);
+    gameStats[3] = Integer.toString(winners.get(0).stopTime - winners.get(0).startTime);
+    gameStats[4] = Integer.toString(game.letters.get(0))+Integer.toString(game.letters.get(1)) + Integer.toString(game.letters.get(2));
+}
+
+public void overWriteWeek(){
+  ArrayList<Player> winners = game.getWinningPlayer();
+  gameStats[5] = longGameTime;
+  gameStats[6] = Integer.toString(winners.get(0).currentScore);
+  gameStats[7] = Integer.toString(winners.get(0).ballsLeft);
+  gameStats[8] = Integer.toString(winners.get(0).stopTime - winners.get(0).startTime);
+  gameStats[9] = Integer.toString(game.letters.get(0))+Integer.toString(game.letters.get(1)) + Integer.toString(game.letters.get(2));
+}
+
+public void overWriteMonth(){
+  ArrayList<Player> winners = game.getWinningPlayer();
+  gameStats[10] = longGameTime;
+  gameStats[11] = Integer.toString(winners.get(0).currentScore);
+  gameStats[12] = Integer.toString(winners.get(0).ballsLeft);
+  gameStats[13] = Integer.toString(winners.get(0).stopTime - winners.get(0).startTime);
+  gameStats[14] = Integer.toString(game.letters.get(0))+Integer.toString(game.letters.get(1)) + Integer.toString(game.letters.get(2));
+}
+
+public void getLeaderboard(){
+  ArrayList<Player> winners = game.getWinningPlayer();
+  println("the long gameTime is " + gameTime);
+  println("the integer value of longGameTime string is : " + Integer.valueOf(longGameTime));
+  println("the integer value of gameStats 0 is: " + Integer.valueOf(gameStats[0]));
+
+  int timeSincePlayed = timeSincePlayed();
+
+  if (timeSincePlayed > day) {
+    overWriteDay();
+  }
+
+  if (timeSincePlayed > week) {
+    overWriteWeek();
+  }
+
+  if (timeSincePlayed > month) {
+    overWriteMonth();
+  }
+
+  if (winners.get(0).currentScore > int(gameStats[1])){
+  overWriteDay();
+  }
+  if (winners.get(0).currentScore == int(gameStats[1])) { // If tie check for ball superiority
+    if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[2])){
+      overWriteDay();
+    }
+  }
+  if (winners.get(0).currentScore > int(gameStats[6])) { // Check for week score win
+    overWriteWeek();
+  }
+  if (winners.get(0).currentScore == int(gameStats[6])) { // If tie check for ball superiority
+    if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[7])){
+      overWriteWeek();
+    }
+  }
+  if (winners.get(0).currentScore >= int(gameStats[11])) { // check for month score win
+    overWriteMonth();
+  }
+  if (winners.get(0).currentScore == int(gameStats[11])) { // If tie check for ball superiority
+    if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[12])){
+    overWriteMonth();
+    }
+  }
+  if (winners.get(0).currentScore > int(gameStats[16])) {
+    gameStats[15] = gameStats[0];
+    gameStats[16] = gameStats[1];
+    gameStats[17] = gameStats[2];
+    gameStats[18] = gameStats[3];
+    gameStats[19] = gameStats[4];
+  }
+  if (winners.get(0).currentScore == int(gameStats[16])) { // If tie check for ball superiority
+    if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[17])){
+      gameStats[15] = gameStats[0];
+      gameStats[16] = gameStats[1];
+      gameStats[17] = gameStats[2];
+      gameStats[18] = gameStats[3];
+      gameStats[19] = gameStats[4];
+    }
+  }
+}
 
 // Left / Right arrows to select num players
 // Enter to replace OK button

@@ -63,7 +63,7 @@ class AnimationManager implements GameEventListener {
   }
 
 
-  void updatedGameState(GameState newState) {
+  public void updatedGameState(GameState newState) {
     println("Game State updated: ", newState);
     gameState = newState;
     standby.stop();

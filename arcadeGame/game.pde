@@ -124,6 +124,7 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
         break;
       case SHOW_RULES:
         setState(GameState.SELECT_PLAYERS);
+        loadStuff();
         break;
       case SELECT_PLAYERS:
         this.startGame();
@@ -139,12 +140,24 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
         startCurrPlayer();
         break;
       case SHOW_PODIUM:
-        setState(GameState.ENTER_NAME);
+        ArrayList<Player> winners = game.getWinningPlayer();
+        if (winners.get(0).currentScore > int(gameStats[1])){
+          setState(GameState.ENTER_NAME);
+        }
+        else {
+          setState(GameState.STANDBY);
+          set(0, 0, animationManager.standby);
+        }
+        if ((winners.get(0).currentScore == int(gameStats[1]) &&  (winners.get(0).ballsLeft > Integer.valueOf(gameStats[2])))) {
+          setState(GameState.ENTER_NAME);
+        }
+        else {
+          setState(GameState.SHOW_LEADERBOARD);
+        }
         break;
       case ENTER_NAME:
           if (letters.size() == 3) {
             setState(GameState.SHOW_LEADERBOARD);
-            //set(0, 0, animationManager.standby);
           }
         else assignLetters();
         break;

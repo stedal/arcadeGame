@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4e47406c-b4c9-49b8-8826-64045505c7f7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/animation_manager.pde" beforeDir="false" afterPath="$PROJECT_DIR$/animation_manager.pde" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arcadeGame.pde" beforeDir="false" afterPath="$PROJECT_DIR$/arcadeGame.pde" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.pde" beforeDir="false" afterPath="$PROJECT_DIR$/game.pde" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen_manager.pde" beforeDir="false" afterPath="$PROJECT_DIR$/screen_manager.pde" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,16 +116,46 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-2102794691">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="pde" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="PLAIN_TEXT" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="pde" value="1753" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="1753" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.18520121">
+    <splitter split-orientation="horizontal" split-proportion="0.33579177">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/game.pde">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="235" column="15" selection-start-line="235" selection-start-column="15" selection-end-line="235" selection-end-column="15" />
+                <state relative-caret-position="645">
+                  <caret line="154" column="47" selection-start-line="154" selection-start-column="47" selection-end-line="154" selection-end-column="47" />
                 </state>
               </provider>
             </entry>
@@ -137,7 +172,7 @@
         </leaf>
       </split-first>
       <split-second>
-        <splitter split-orientation="horizontal" split-proportion="0.28996283">
+        <splitter split-orientation="horizontal" split-proportion="0.55780536">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="false">
@@ -145,15 +180,6 @@
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="520">
                       <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/state_game.pde">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="220">
-                      <caret line="82" column="61" lean-forward="true" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
                     </state>
                   </provider>
                 </entry>
@@ -167,24 +193,24 @@
                   </provider>
                 </entry>
               </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/screen_manager.pde">
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/arcadeGame.pde">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="860">
-                      <caret line="172" column="5" lean-forward="true" selection-start-line="172" selection-start-column="5" selection-end-line="172" selection-end-column="5" />
+                    <state relative-caret-position="391">
+                      <caret line="143" column="6" lean-forward="true" selection-start-line="143" selection-start-column="6" selection-end-line="143" selection-end-column="6" />
                     </state>
                   </provider>
                 </entry>
               </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/.gitignore">
+                <entry file="file://$PROJECT_DIR$/screen_manager.pde">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state>
-                      <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+                    <state relative-caret-position="306">
+                      <caret line="149" column="37" lean-forward="true" selection-start-line="149" selection-start-column="37" selection-end-line="149" selection-end-column="37" />
                     </state>
                   </provider>
                 </entry>
@@ -192,8 +218,8 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/animation_manager.pde">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="800">
-                      <caret line="93" selection-start-line="93" selection-end-line="93" />
+                    <state relative-caret-position="327">
+                      <caret line="67" column="25" lean-forward="true" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
                     </state>
                   </provider>
                 </entry>
@@ -225,6 +251,8 @@
       <find>updatedGame</find>
       <find>standby</find>
       <find>printing map</find>
+      <find>savestuff</find>
+      <find>loadstuff</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\86mac\git\state_game\pubstick</dir>
@@ -241,18 +269,20 @@
         <option value="$PROJECT_DIR$/svg_drawing.pde" />
         <option value="$PROJECT_DIR$/arduino_processor.pde" />
         <option value="$PROJECT_DIR$/pubstick.pde" />
+        <option value="$PROJECT_DIR$/state_game.pde" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/../../state_game/state_game/state_game.pde" />
+        <option value="$PROJECT_DIR$/screen_manager.pde" />
         <option value="$PROJECT_DIR$/animation_manager.pde" />
         <option value="$PROJECT_DIR$/game.pde" />
-        <option value="$PROJECT_DIR$/state_game.pde" />
-        <option value="$PROJECT_DIR$/screen_manager.pde" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/arcadeGame.pde" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-3153" />
-    <option name="y" value="-459" />
-    <option name="width" value="1629" />
+    <option name="x" value="-2969" />
+    <option name="y" value="-488" />
+    <option name="width" value="1620" />
     <option name="height" value="974" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -345,25 +375,25 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="state_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="state_game" type="462c0819:PsiDirectoryNode" />
+              <item name="arcadeGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="arcadeGame" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="listener&#9;null&#9;null&#10;next_player&#9;FILE&#9;file://C:/Users/86mac/Desktop/Flatstick Working/pubstick/data/ready_next_player.png" />
     <property name="TODO_SCOPE" value="Project Files" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Stickputt_STED_181008/pubstick/application.windows64/source/pubstick" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../state_game/state_game/state_game.pde" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RunDashboard">
@@ -403,7 +433,7 @@
     <frame x="-3847" y="-748" width="2575" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49949747" visible="true" weight="0.08111332" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49949747" visible="true" weight="0.08349901" />
       <window_info id="Structure" order="1" sideWeight="0.5005025" side_tool="true" weight="0.13200796" />
       <window_info id="Designer" order="2" />
       <window_info id="Learn" order="3" />
@@ -436,6 +466,21 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/pubstick.pde" />
+    <entry file="file://$PROJECT_DIR$/state_game.pde" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../state_game/state_game/state_game.pde">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/svg_drawing.pde">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3020">
@@ -457,38 +502,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game.pde">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="235" column="15" selection-start-line="235" selection-start-column="15" selection-end-line="235" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/animation_manager.pde">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/state_game.pde">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="82" column="61" lean-forward="true" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
+        <state relative-caret-position="327">
+          <caret line="67" column="25" lean-forward="true" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/screen_manager.pde">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="860">
-          <caret line="172" column="5" lean-forward="true" selection-start-line="172" selection-start-column="5" selection-end-line="172" selection-end-column="5" />
+        <state relative-caret-position="306">
+          <caret line="149" column="37" lean-forward="true" selection-start-line="149" selection-start-column="37" selection-end-line="149" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/game.pde">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+        <state relative-caret-position="645">
+          <caret line="154" column="47" selection-start-line="154" selection-start-column="47" selection-end-line="154" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/arcadeGame.pde">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="143" column="6" lean-forward="true" selection-start-line="143" selection-start-column="6" selection-end-line="143" selection-end-column="6" />
         </state>
       </provider>
     </entry>
