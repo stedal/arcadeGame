@@ -144,11 +144,7 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
         if (winners.get(0).currentScore > int(gameStats[1])){
           setState(GameState.ENTER_NAME);
         }
-        else {
-          setState(GameState.STANDBY);
-          set(0, 0, animationManager.standby);
-        }
-        if ((winners.get(0).currentScore == int(gameStats[1]) &&  (winners.get(0).ballsLeft > Integer.valueOf(gameStats[2])))) {
+        else if ((winners.get(0).currentScore == int(gameStats[1]) &&  (winners.get(0).ballsLeft > Integer.valueOf(gameStats[2])))) {
           setState(GameState.ENTER_NAME);
         }
         else {

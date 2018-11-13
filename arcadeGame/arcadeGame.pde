@@ -40,13 +40,6 @@ void setup() {
   size(1920, 1080);
   textSize(32);
   frameRate(30);
-
-  for (int i = 0; i < gameStats.length; i ++) {
-  gameStats[i] = "";
-  }
-
-  println("ran setup");
-
 }
 
 
@@ -113,7 +106,6 @@ interface PlayerEventListener {
 public void loadStuff(){
   try{
     gameStats = loadStrings(System.getProperty("user.dir") + File.separator + "gamestats.txt");// Can be any file type
-    println("did this work?/");
     for (int i = 0; i < gameStats.length; i++) {
         println("printing gameStats at " + i + gameStats[i]);
         }
