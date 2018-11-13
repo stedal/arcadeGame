@@ -62,7 +62,7 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
     listener = eventListener;
   }
 
-  void startGame() {
+ public void startGame() {
     players = new Player[numPlayers];
     for (int i = 0; i < numPlayers; i++) {
       players[i] = new Player(10, i, turnDuration);
@@ -73,6 +73,8 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
     startTime = millis();
     totalTime = millis() - startTime;
     startCurrPlayer();
+    letter = 101;
+    letters.clear();
   }
 
   void busted() {
