@@ -193,7 +193,7 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
     letters.add(letter);
   }
   void decreaseLetter(){
-    if ( letter > 100 ) {
+    if ( letter > 101 ) {
       letter = letter - 1;
     }
   }
