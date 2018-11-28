@@ -13,7 +13,7 @@ AnimationManager animationManager;
 ScreenManager screenManager;
 
 // limit cycles to shut down game.
-int limit_cycles = 2;
+int limit_cycles = 4;
 int cycles = 0;
 
 // setup variables for leaderboard time checking

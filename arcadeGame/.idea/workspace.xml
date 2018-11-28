@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4e47406c-b4c9-49b8-8826-64045505c7f7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/animation_manager.pde" beforeDir="false" afterPath="$PROJECT_DIR$/animation_manager.pde" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/arcadeGame.pde" beforeDir="false" afterPath="$PROJECT_DIR$/arcadeGame.pde" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.pde" beforeDir="false" afterPath="$PROJECT_DIR$/game.pde" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,44 +115,46 @@
     <session id="-2102794691">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="2" />
+          <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="java" value="1" />
           <entry key="pde" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="JAVA" value="1" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="pde" value="1789" />
+          <entry key="pde" value="1790" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="1789" />
+          <entry key="PLAIN_TEXT" value="1790" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.36302188">
+    <splitter split-orientation="horizontal" split-proportion="0.23300199">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/game.pde">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="602">
+                <state relative-caret-position="3460">
                   <caret line="173" column="9" selection-start-line="173" selection-start-column="9" selection-end-line="173" selection-end-column="9" />
                 </state>
               </provider>
@@ -173,14 +172,14 @@
         </leaf>
       </split-first>
       <split-second>
-        <splitter split-orientation="horizontal" split-proportion="0.49098197">
+        <splitter split-orientation="horizontal" split-proportion="0.4551581">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/arduino_processor.pde">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="440">
-                      <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+                      <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
                     </state>
                   </provider>
                 </entry>
@@ -197,8 +196,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/arcadeGame.pde">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="880">
-                      <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+                    <state relative-caret-position="260">
+                      <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
                     </state>
                   </provider>
                 </entry>
@@ -220,7 +219,7 @@
                 <entry file="file://$PROJECT_DIR$/animation_manager.pde">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="680">
-                      <caret line="128" column="38" lean-forward="true" selection-start-line="128" selection-start-column="38" selection-end-line="128" selection-end-column="38" />
+                      <caret line="128" column="38" selection-start-line="128" selection-start-column="38" selection-end-line="128" selection-end-column="38" />
                     </state>
                   </provider>
                 </entry>
@@ -275,17 +274,17 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/../../state_game/state_game/state_game.pde" />
         <option value="$PROJECT_DIR$/screen_manager.pde" />
-        <option value="$PROJECT_DIR$/arcadeGame.pde" />
         <option value="$PROJECT_DIR$/game.pde" />
         <option value="$PROJECT_DIR$/animation_manager.pde" />
+        <option value="$PROJECT_DIR$/arcadeGame.pde" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2917" />
-    <option name="y" value="-1027" />
-    <option name="width" value="2180" />
-    <option name="height" value="1310" />
+    <option name="x" value="2916" />
+    <option name="y" value="-1028" />
+    <option name="width" value="2181" />
+    <option name="height" value="1311" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -468,10 +467,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/game.pde">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3460">
+          <caret line="173" column="9" selection-start-line="173" selection-start-column="9" selection-end-line="173" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/svg_drawing.pde">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3020">
           <caret line="151" column="1" selection-start-line="151" selection-start-column="1" selection-end-line="151" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/arduino_processor.pde">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -489,33 +502,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/arduino_processor.pde">
+    <entry file="file://$PROJECT_DIR$/application.windows64/source/arcadeGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game.pde">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="173" column="9" selection-start-line="173" selection-start-column="9" selection-end-line="173" selection-end-column="9" />
+        <state relative-caret-position="424">
+          <caret line="431" column="52" lean-forward="true" selection-start-line="431" selection-start-column="52" selection-end-line="431" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/animation_manager.pde">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
-          <caret line="128" column="38" lean-forward="true" selection-start-line="128" selection-start-column="38" selection-end-line="128" selection-end-column="38" />
+          <caret line="128" column="38" selection-start-line="128" selection-start-column="38" selection-end-line="128" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/arcadeGame.pde">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+        <state relative-caret-position="260">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
