@@ -162,6 +162,16 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
       case SHOW_LEADERBOARD:
         setState(GameState.STANDBY);
         set(0, 0, animationManager.standby);
+        // Begin file output stuff
+        Logger loggerObject;
+        loggerObject = new Logger (sketchPath("") + "data1.txt");
+        loggerObject.log("1");
+        // end file output stuff
+        cycles += 1;
+        if (cycles == limit_cycles){
+          println("cycles met, exiting");
+          exit();
+        }
         break;
       default:
         println("Skipping OK button, not relevant");

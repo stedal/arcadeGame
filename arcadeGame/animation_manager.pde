@@ -72,12 +72,7 @@ class AnimationManager implements GameEventListener {
       standby.loop();
       break;
     case FINISHED:
-    // Begin file output stuff
-      Logger loggerObject;
-      loggerObject = new Logger (sketchPath("") + "data1.txt");
-      loggerObject.log("1");
 
-    // end file output stuff
 
       ArrayList<Player> winners = game.getWinningPlayer();
       if (winners.size() == 1) {
@@ -85,7 +80,7 @@ class AnimationManager implements GameEventListener {
 
         queueAnimation(allWinVideos[playerIndex]);
         println("increasing cycle count");
-        cycles += 1;
+        //cycles += 1;
         startAnimTime = millis();
         println("start animation time is: " + startAnimTime);
         println("queued animations length");
@@ -94,7 +89,7 @@ class AnimationManager implements GameEventListener {
 
       } else {
         queueAnimation(allWinVideos[4]); // This is tie video
-        cycles += 1;
+        //cycles += 1;
         }
       break;
     default:
@@ -122,16 +117,12 @@ class AnimationManager implements GameEventListener {
         println("removing a vid, ", startAnimTime, currAnim.duration()*1000, millis());
         currAnim = null;
         queuedAnimations.remove(0);
-        if (queuedAnimations.size() == 0){
-          println("queued animation size is: ", queuedAnimations.size());
-          if (cycles == limit_cycles){
-            println("cycles met, exiting");
-            exit();
-          }
-        }
-        game.resume();
+        //if (queuedAnimations.size() == 0)
+        //  println("queued animation size is: ", queuedAnimations.size());
       }
+        game.resume();
     }
+
 
 
 
