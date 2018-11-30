@@ -143,10 +143,15 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
         break;
       case SHOW_PODIUM:
         ArrayList<Player> winners = game.getWinningPlayer();
+        long gameTime = System.currentTimeMillis()/1000; // Seconds since epoch
+        long timeSincePlayed = timeSincePlayed(gameTime);
         if (winners.get(0).currentScore > int(gameStats[1])){
           setState(GameState.ENTER_NAME);
         }
         else if ((winners.get(0).currentScore == int(gameStats[1]) &&  (winners.get(0).ballsLeft > Integer.valueOf(gameStats[2])))) {
+          setState(GameState.ENTER_NAME);
+        }
+        else if (timeSincePlayed > day) {
           setState(GameState.ENTER_NAME);
         }
         else {

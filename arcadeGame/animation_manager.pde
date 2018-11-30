@@ -77,7 +77,6 @@ class AnimationManager implements GameEventListener {
       ArrayList<Player> winners = game.getWinningPlayer();
       if (winners.size() == 1) {
         int playerIndex = winners.get(0).id;
-
         queueAnimation(allWinVideos[playerIndex]);
         println("increasing cycle count");
         //cycles += 1;
@@ -86,7 +85,6 @@ class AnimationManager implements GameEventListener {
         println("queued animations length");
         int arraylength = queuedAnimations.size();
         println(arraylength);
-
       } else {
         queueAnimation(allWinVideos[4]); // This is tie video
         //cycles += 1;
@@ -111,16 +109,21 @@ class AnimationManager implements GameEventListener {
     queuedAnimations.add(m);
   }
 
-  void display() {
+ void display() {
     if (currAnim != null) {
       if (millis() > startAnimTime + currAnim.duration()*1000) {
         println("removing a vid, ", startAnimTime, currAnim.duration()*1000, millis());
         currAnim = null;
         queuedAnimations.remove(0);
-        //if (queuedAnimations.size() == 0)
-        //  println("queued animation size is: ", queuedAnimations.size());
-      }
+        if (queuedAnimations.size() == 0){
+          println("queued animation size is: ", queuedAnimations.size());
+          //if (cycles == limit_cycles){
+           // println("cycles met, exiting");
+          //  exit();
+          //}
+        }
         game.resume();
+      }
     }
 
 
