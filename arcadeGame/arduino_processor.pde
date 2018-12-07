@@ -45,9 +45,9 @@ class ArduinoProcessor {
 
     for (int i = 0; i <= 4; i++) {
       int pin = i + 3;
-      if (holesArduino.digitalRead(pin) == Arduino.LOW) {
+      if (holesArduino.digitalRead(pin) == Arduino.HIGH) {
               delay(5); // Needed to elminate false positives
-              if (holesArduino.digitalRead(pin) == Arduino.LOW){
+              if (holesArduino.digitalRead(pin) == Arduino.HIGH){
                 delay(300); // Needed to eliminate double read
                 listener.onShotMade(pin);
               }

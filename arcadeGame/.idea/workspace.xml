@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e47406c-b4c9-49b8-8826-64045505c7f7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/animation_manager.pde" beforeDir="false" afterPath="$PROJECT_DIR$/animation_manager.pde" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/arcadeGame.pde" beforeDir="false" afterPath="$PROJECT_DIR$/arcadeGame.pde" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arduino_processor.pde" beforeDir="false" afterPath="$PROJECT_DIR$/arduino_processor.pde" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.pde" beforeDir="false" afterPath="$PROJECT_DIR$/game.pde" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,47 +117,48 @@
     <session id="-2102794691">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="4" />
+          <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.6" value="7" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="java" value="1" />
-          <entry key="pde" value="4" />
+          <entry key="pde" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JAVA" value="1" />
-          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="PLAIN_TEXT" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="pde" value="2068" />
+          <entry key="pde" value="2225" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="2068" />
+          <entry key="PLAIN_TEXT" value="2225" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.29900596">
+    <splitter split-orientation="horizontal" split-proportion="0.32644135">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/game.pde">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-624">
-                  <caret line="122" column="19" lean-forward="true" selection-start-line="122" selection-start-column="19" selection-end-line="122" selection-end-column="19" />
+                <state relative-caret-position="180">
+                  <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
                 </state>
               </provider>
             </entry>
@@ -174,23 +175,14 @@
         </leaf>
       </split-first>
       <split-second>
-        <splitter split-orientation="horizontal" split-proportion="0.7584">
+        <splitter split-orientation="horizontal" split-proportion="0.5190017">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/arduino_processor.pde">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="440">
-                      <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/Player.pde">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="540">
-                      <caret line="27" selection-start-line="27" selection-end-line="27" />
+                    <state relative-caret-position="280">
+                      <caret line="14" selection-start-line="14" selection-end-line="14" />
                     </state>
                   </provider>
                 </entry>
@@ -198,8 +190,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/arcadeGame.pde">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="620">
-                      <caret line="31" column="48" lean-forward="true" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+                    <state relative-caret-position="677">
+                      <caret line="34" selection-start-line="34" selection-end-line="34" />
                     </state>
                   </provider>
                 </entry>
@@ -208,20 +200,20 @@
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/screen_manager.pde">
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/arduino_processor.pde">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="923">
-                      <caret line="205" column="29" lean-forward="true" selection-start-line="205" selection-start-column="29" selection-end-line="205" selection-end-column="29" />
+                    <state relative-caret-position="677">
+                      <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/application.windows64/source/screen_manager.pde">
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/screen_manager.pde">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="2320">
-                      <caret line="199" column="20" lean-forward="true" selection-start-line="199" selection-start-column="20" selection-end-line="199" selection-end-column="20" />
+                    <state relative-caret-position="4100">
+                      <caret line="205" column="29" selection-start-line="205" selection-start-column="29" selection-end-line="205" selection-end-column="29" />
                     </state>
                   </provider>
                 </entry>
@@ -229,7 +221,7 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/animation_manager.pde">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="440">
+                    <state relative-caret-position="2380">
                       <caret line="119" selection-start-line="119" selection-end-line="120" />
                     </state>
                   </provider>
@@ -287,18 +279,18 @@
         <option value="$PROJECT_DIR$/state_game.pde" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/../../state_game/state_game/state_game.pde" />
-        <option value="$PROJECT_DIR$/screen_manager.pde" />
         <option value="$PROJECT_DIR$/animation_manager.pde" />
         <option value="$PROJECT_DIR$/game.pde" />
+        <option value="$PROJECT_DIR$/screen_manager.pde" />
         <option value="$PROJECT_DIR$/arcadeGame.pde" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2916" />
-    <option name="y" value="-1028" />
-    <option name="width" value="2181" />
-    <option name="height" value="1311" />
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
+    <option name="width" value="2906" />
+    <option name="height" value="1746" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -431,8 +423,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2873" y="-1053" width="2575" height="1415" extended-state="6" />
-    <editor active="true" />
+    <frame x="-6" y="-6" width="1453" height="873" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49949747" weight="0.08458781" />
       <window_info id="Structure" order="1" sideWeight="0.5005025" side_tool="true" weight="0.13200796" />
@@ -482,13 +473,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application.windows64/source/arcadeGame.java">
+    <entry file="file://$PROJECT_DIR$/application.windows64/source/arcadeGame.java" />
+    <entry file="file://$PROJECT_DIR$/application.windows64/source/screen_manager.pde" />
+    <entry file="file://$PROJECT_DIR$/game.pde">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="431" column="52" lean-forward="true" selection-start-line="431" selection-start-column="52" selection-end-line="431" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -499,52 +489,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/arduino_processor.pde">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Player.pde">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/animation_manager.pde">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="119" selection-start-line="119" selection-end-line="120" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screen_manager.pde">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="923">
-          <caret line="205" column="29" lean-forward="true" selection-start-line="205" selection-start-column="29" selection-end-line="205" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application.windows64/source/screen_manager.pde">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2320">
-          <caret line="199" column="20" lean-forward="true" selection-start-line="199" selection-start-column="20" selection-end-line="199" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game.pde">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-624">
-          <caret line="122" column="19" lean-forward="true" selection-start-line="122" selection-start-column="19" selection-end-line="122" selection-end-column="19" />
+        <state relative-caret-position="280">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/arcadeGame.pde">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="31" column="48" lean-forward="true" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+        <state relative-caret-position="677">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/arduino_processor.pde">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="677">
+          <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screen_manager.pde">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4100">
+          <caret line="205" column="29" selection-start-line="205" selection-start-column="29" selection-end-line="205" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/animation_manager.pde">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2380">
+          <caret line="119" selection-start-line="119" selection-end-line="120" />
         </state>
       </provider>
     </entry>

@@ -29,9 +29,14 @@ int[] monthStats = new int[5];
 int[] allTimeStats = new int[5];
 
 void setup() {
+  // FIND ARDUINOS:
+  // for i in Arduino.list():
+  // read arduino voltage at certain pin, assign number, reassign arduino with that number
+
   animationManager = new AnimationManager(this);
   game = new Game(animationManager);
   screenManager = new ScreenManager(game);
+
     arduinoProcessor = new ArduinoProcessor (
     new Arduino(this, Arduino.list()[0], 57600), // holes
     new Arduino(this, Arduino.list()[1], 57600), // buttons
