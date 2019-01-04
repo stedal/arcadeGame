@@ -38,8 +38,8 @@ void setup() {
   screenManager = new ScreenManager(game);
 
     arduinoProcessor = new ArduinoProcessor (
-    new Arduino(this, Arduino.list()[0], 57600), // holes
-    new Arduino(this, Arduino.list()[1], 57600), // buttons
+    new Arduino(this, Arduino.list()[1], 57600), // holes
+    new Arduino(this, Arduino.list()[0], 57600), // buttons
     game
   );
   size(1920, 1080);
@@ -199,44 +199,55 @@ public void getLeaderboard(){
   long gameTime = System.currentTimeMillis()/1000; // Seconds since epoch
   println("gameTime is :", gameTime);
 
+
   long timeSincePlayed = timeSincePlayed(gameTime);
   println("timeSincePlayed is: ", timeSincePlayed);
 
   if (timeSincePlayed > day) {
     overWriteDay(gameTime);
-    println("overwrote day");
+    println("overwrote DAY on time");
   }
 
   if (timeSincePlayed > week) {
     overWriteWeek(gameTime);
+    println("overwrote WEEK on time");
   }
 
   if (timeSincePlayed > month) {
     overWriteMonth(gameTime);
+    println("overwrote MONTH on time");
   }
 
   if (winners.get(0).currentScore > int(gameStats[1])){
-  overWriteDay(gameTime);
+    overWriteDay(gameTime);
+    println("overwrote DAY on SCORE");
   }
   if (winners.get(0).currentScore == int(gameStats[1])) { // If tie check for ball superiority
     if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[2])){
       overWriteDay(gameTime);
+      println("overwrote DAY on TIE");
     }
   }
+
   if (winners.get(0).currentScore > int(gameStats[6])) { // Check for week score win
     overWriteWeek(gameTime);
+    println("overwrote WEEK on SCORE");
   }
   if (winners.get(0).currentScore == int(gameStats[6])) { // If tie check for ball superiority
     if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[7])){
       overWriteWeek(gameTime);
+      println("overwrote WEEK on TIE");
     }
   }
-  if (winners.get(0).currentScore >= int(gameStats[11])) { // check for month score win
+
+  if (winners.get(0).currentScore > int(gameStats[11])) { // check for month score win
     overWriteMonth(gameTime);
+    println("overwrote MONTH on SCORE");
   }
   if (winners.get(0).currentScore == int(gameStats[11])) { // If tie check for ball superiority
     if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[12])){
     overWriteMonth(gameTime);
+    println("overwrote MONTH on TIE");
     }
   }
   if (winners.get(0).currentScore > int(gameStats[16])) {
