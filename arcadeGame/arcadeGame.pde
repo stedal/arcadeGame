@@ -27,25 +27,13 @@ int[] dayStats = new int[5];
 int[] weekStats = new int[5];
 int[] monthStats = new int[5];
 int[] allTimeStats = new int[5];
-//Arduino arduino0 = new Arduino(this, Arduino.list()[0], 57600);
-//Arduino arduino1 = new Arduino(this, Arduino.list()[1], 57600);
+Arduino arduino0 = new Arduino(this, Arduino.list()[0], 57600);
+Arduino arduino1 = new Arduino(this, Arduino.list()[1], 57600);
 //  arduino0 = new Arduino(this, Arduino.list()[0], 57600);
 //  arduino1 = new Arduino(this, Arduino.list()[1], 57600);
 
 
 void setup() {
-  // FIND ARDUINOS:
-  // for i in Arduino.list():
-  // read arduino voltage at certain pin, assign number, reassign arduino with that number
-/* 
-  Arduino arduino0;
-  Arduino arduino1;
-  arduino0 = new Arduino(this, Arduino.list()[0], 57600);
-  arduino1 = new Arduino(this, Arduino.list()[1], 57600);
-  
-  */
-  
-   /*
   arduino0.pinMode(0, Arduino.INPUT);
   arduino1.pinMode(0, Arduino.INPUT);
   
@@ -56,7 +44,7 @@ void setup() {
     delay(1250);
   }
 
- 
+ /*
   //DEBUG
   for (int i = 0; i < 5; i++){
     println("Arduino 0");
@@ -73,8 +61,13 @@ void setup() {
     println("");  
     delay(1250);
   };
- 
+  */
   
+  animationManager = new AnimationManager(this);
+  game = new Game(animationManager);
+  screenManager = new ScreenManager(game);
+  
+  // Find arduino with voltage divider and assign it to bottons arduino.
   if (arduino0.analogRead(0) < 525 && arduino0.analogRead(0) > 475) {
       arduinoProcessor = new ArduinoProcessor (
       arduino0, // buttons
@@ -89,26 +82,18 @@ void setup() {
     game
     );
   };
- */
-  
+ /*
   arduinoProcessor = new ArduinoProcessor (
     new Arduino(this, Arduino.list()[1], 57600), // holes
     new Arduino(this, Arduino.list()[0], 57600), // buttons
     game
-    );
-  
-  
-  
-  animationManager = new AnimationManager(this);
-  game = new Game(animationManager);
-  screenManager = new ScreenManager(game);
+  );
+*/
 
   size(1920, 1080);
   textSize(32);
   frameRate(30);
 }
-
-
 
 void draw() {
   arduinoProcessor.update();
