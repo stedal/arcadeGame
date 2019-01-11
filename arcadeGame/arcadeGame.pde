@@ -27,30 +27,78 @@ int[] dayStats = new int[5];
 int[] weekStats = new int[5];
 int[] monthStats = new int[5];
 int[] allTimeStats = new int[5];
+//Arduino arduino0 = new Arduino(this, Arduino.list()[0], 57600);
+//Arduino arduino1 = new Arduino(this, Arduino.list()[1], 57600);
+//  arduino0 = new Arduino(this, Arduino.list()[0], 57600);
+//  arduino1 = new Arduino(this, Arduino.list()[1], 57600);
+
 
 void setup() {
   // FIND ARDUINOS:
   // for i in Arduino.list():
   // read arduino voltage at certain pin, assign number, reassign arduino with that number
-
+/* 
+  Arduino arduino0;
+  Arduino arduino1;
   arduino0 = new Arduino(this, Arduino.list()[0], 57600);
   arduino1 = new Arduino(this, Arduino.list()[1], 57600);
+  
+  */
+  
+   /*
   arduino0.pinMode(0, Arduino.INPUT);
   arduino1.pinMode(0, Arduino.INPUT);
+  
+  // Warm up ADC
+  for ( int i = 0; i<4; i++){
+    arduino0.analogRead(0);
+    arduino1.analogRead(0);
+    delay(1250);
+  }
+
+ 
+  //DEBUG
+  for (int i = 0; i < 5; i++){
+    println("Arduino 0");
+    for (int j = 0; j < 6; j++) {
+      int pin =j;
+      print("pin " + pin + " = " + arduino0.analogRead(pin) + " ");
+    }
+    println("");
+    println("Arduino 1");
+    for (int j= 0; j < 6; j ++) {
+      int pin = j;
+      print("pin " + pin + " = " + arduino1.analogRead(pin) + " ");
+    }
+    println("");  
+    delay(1250);
+  };
+ 
+  
   if (arduino0.analogRead(0) < 525 && arduino0.analogRead(0) > 475) {
       arduinoProcessor = new ArduinoProcessor (
-      new Arduino(this, Arduino.list()[0], 57600), // buttons
-      new Arduino(this, Arduino.list()[1], 57600), // holes
+      arduino0, // buttons
+      arduino1, // holes
       game
     );
   }
-  else {
+  else if (arduino1.analogRead(0) < 525 && arduino1.analogRead(0) > 475) {
     arduinoProcessor = new ArduinoProcessor (
+    arduino1, // buttons
+    arduino0, // holess
+    game
+    );
+  };
+ */
+  
+  arduinoProcessor = new ArduinoProcessor (
     new Arduino(this, Arduino.list()[1], 57600), // holes
     new Arduino(this, Arduino.list()[0], 57600), // buttons
     game
     );
-  };
+  
+  
+  
   animationManager = new AnimationManager(this);
   game = new Game(animationManager);
   screenManager = new ScreenManager(game);
