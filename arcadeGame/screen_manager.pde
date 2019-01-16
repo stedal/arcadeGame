@@ -11,9 +11,12 @@ class ScreenManager {
   PImage waitScreen;
   PImage allPodiumScreens[] = new PImage[4];
   PImage allLetters[] = new PImage[27];
+  PImage smallNum[] = new PImage[11];
+  PImage colon;
   Game game;
 
   ScreenManager(Game game) {
+    colon = loadImage("colon.png");
     rulesScreenImage = loadImage("pubstick_rules.png");
     playerSelectImage = loadImage("pubstick_playerselection.png");
     lightGolfBall = loadImage("golf_ball_light.png");
@@ -32,6 +35,10 @@ class ScreenManager {
     for (int i = 101; i < 127; i++) {
       String letterToLoad = (i) + ".png";
       allLetters[i-100] = loadImage(letterToLoad);
+    }
+    for (int i = 0; i<= 10; i++) {
+      String numToLoad = "smallnum" + (i) + ".png";
+      smallNum[i] = loadImage(numToLoad);
     }
 
     initSvgDrawing();
@@ -159,19 +166,55 @@ class ScreenManager {
 
   void showLeaders() {
     int xLocations[] = {113-36, 636-36, 1128-36, 1608-36};
-    int yLocation = 570;
+    int yLocation = 470;
 
     int dailyBest[] = {Integer.valueOf(gameStats[4].substring(0,3))- 100, Integer.valueOf(gameStats[4].substring(3,6))- 100, Integer.valueOf(gameStats[4].substring(6,9))- 100};
     int weeklyBest[] = {Integer.valueOf(gameStats[9].substring(0,3))- 100, Integer.valueOf(gameStats[9].substring(3,6))- 100, Integer.valueOf(gameStats[9].substring(6,9))- 100};
     int monthlyBest[] = {Integer.valueOf(gameStats[14].substring(0,3))- 100, Integer.valueOf(gameStats[14].substring(3,6))- 100, Integer.valueOf(gameStats[14].substring(6,9))- 100};
     int allTimeBest[] = {Integer.valueOf(gameStats[19].substring(0,3))- 100, Integer.valueOf(gameStats[19].substring(3,6))- 100, Integer.valueOf(gameStats[19].substring(6,9))- 100};
+
     int[][] initials = { dailyBest, weeklyBest, monthlyBest, allTimeBest};
-    for (int j = 0; j < 4; j++) {
-      for (int i = 0; i < 3; i++) {
-        image(allLetters[initials[j][i]], xLocations[j]+i*92, yLocation);
+    for (int i = 0; i < 4; i++) {
+      for (int j = 0; j < 3; j++) {
+        image(allLetters[initials[i][j]], xLocations[i]+j*92, yLocation);
       }
     }
+    // Display score for each player
+    for (int i = 0; i<4 ; i++) {
+      String temp = gameStats[(i*5)+1];
+      for (int j= 0; j < temp.length(); j++) {
+        int digit = Integer.valueOf(temp.charAt(j))-48;
+        image(smallNum[digit], (xLocations[i]+j*30) + 150, yLocation+157);
+      }
+    }
+    // Display balls used for each player
+    for (int i = 0; i<4 ; i++) {
+      String temp = gameStats[(i*5)+2];
+      for (int j= 0; j < temp.length(); j++) {
+        int digit = Integer.valueOf(temp.charAt(j))-48;
+        image(smallNum[digit], (xLocations[i]+j*30) + 150, yLocation+247);
+       }
+    }
+    // Display time for each player
+    for (int i = 0; i<4 ; i++) {
+      int total = Integer.valueOf(gameStats[(i*5)+3])/1000; // convert milli to seconds
+      int minutes = total/60;
+      int seconds = total%60;
+      String secondsStr = String.valueOf(seconds);
+      //String minutesStr = minutes;
+      image(smallNum[minutes], (xLocations[i]) + 150, yLocation+337);
+      image(colon, (xLocations[i]+20) + 150, yLocation+337);
+      if (secondsStr.length() == 1) {
+        secondsStr = "0" + secondsStr;
+      };
+      for (int j= 0; j < secondsStr.length(); j++) {
+        int digit = Integer.valueOf(secondsStr.charAt(j))-48;
+        image(smallNum[digit], (xLocations[i]+j*30) + 205, yLocation+337);
+       }
+    }
   }
+
+
 
   void display() {
     switch(game.state) {

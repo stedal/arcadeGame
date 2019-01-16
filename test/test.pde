@@ -3,9 +3,9 @@ import processing.video.*;
 import processing.serial.*;
 
 Arduino arduino;
-Arduino arduino2;
+//Arduino arduino2;
 
-int pin = 4;
+int pin = 3;
 
 void setup() {
   

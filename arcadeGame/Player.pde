@@ -42,9 +42,11 @@ public class Player {
   void addPointsToScore(int points) {
     currentScore += points;
     if (currentScore > 21) {
+      useBall();
       eventListener.busted();
       currentScore = 14;
     } else if (currentScore == 21) {
+      useBall();
       eventListener.blackjack();
       eventListener.endTurn();
       return;

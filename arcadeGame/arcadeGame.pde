@@ -160,7 +160,7 @@ public void overWriteDay(long gameTime){
   String longGameTime = Long.valueOf(gameTime).toString();
   gameStats[0] = longGameTime;
   gameStats[1] = Integer.toString(winners.get(0).currentScore);
-  gameStats[2] = Integer.toString(winners.get(0).ballsLeft);
+  gameStats[2] = Integer.toString(10 - winners.get(0).ballsLeft);
   gameStats[3] = Integer.toString(winners.get(0).stopTime - winners.get(0).startTime);
   gameStats[4] = Integer.toString(game.letters.get(0))+Integer.toString(game.letters.get(1)) + Integer.toString(game.letters.get(2));
   println("the long gameTime is " + gameTime);
@@ -173,7 +173,7 @@ public void overWriteWeek(long gameTime){
   String longGameTime = Long.valueOf(gameTime).toString();
   gameStats[5] = longGameTime;
   gameStats[6] = Integer.toString(winners.get(0).currentScore);
-  gameStats[7] = Integer.toString(winners.get(0).ballsLeft);
+  gameStats[7] = Integer.toString(10 - winners.get(0).ballsLeft);
   gameStats[8] = Integer.toString(winners.get(0).stopTime - winners.get(0).startTime);
   gameStats[9] = Integer.toString(game.letters.get(0))+Integer.toString(game.letters.get(1)) + Integer.toString(game.letters.get(2));
   println("the long gameTime is " + gameTime);
@@ -186,7 +186,7 @@ public void overWriteMonth(long gameTime){
   String longGameTime = Long.valueOf(gameTime).toString();
   gameStats[10] = longGameTime;
   gameStats[11] = Integer.toString(winners.get(0).currentScore);
-  gameStats[12] = Integer.toString(winners.get(0).ballsLeft);
+  gameStats[12] = Integer.toString(10 - winners.get(0).ballsLeft);
   gameStats[13] = Integer.toString(winners.get(0).stopTime - winners.get(0).startTime);
   gameStats[14] = Integer.toString(game.letters.get(0))+Integer.toString(game.letters.get(1)) + Integer.toString(game.letters.get(2));
   println("the long gameTime is " + gameTime);
@@ -197,11 +197,7 @@ public void overWriteMonth(long gameTime){
 public void getLeaderboard(){
   ArrayList<Player> winners = game.getWinningPlayer();
   long gameTime = System.currentTimeMillis()/1000; // Seconds since epoch
-  println("gameTime is :", gameTime);
-
-
   long timeSincePlayed = timeSincePlayed(gameTime);
-  println("timeSincePlayed is: ", timeSincePlayed);
 
   if (timeSincePlayed > day) {
     overWriteDay(gameTime);
@@ -223,7 +219,7 @@ public void getLeaderboard(){
     println("overwrote DAY on SCORE");
   }
   if (winners.get(0).currentScore == int(gameStats[1])) { // If tie check for ball superiority
-    if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[2])){
+    if (winners.get(0).ballsLeft < Integer.valueOf(gameStats[2])){
       overWriteDay(gameTime);
       println("overwrote DAY on TIE");
     }
@@ -234,7 +230,7 @@ public void getLeaderboard(){
     println("overwrote WEEK on SCORE");
   }
   if (winners.get(0).currentScore == int(gameStats[6])) { // If tie check for ball superiority
-    if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[7])){
+    if (winners.get(0).ballsLeft < Integer.valueOf(gameStats[7])){
       overWriteWeek(gameTime);
       println("overwrote WEEK on TIE");
     }
@@ -245,7 +241,7 @@ public void getLeaderboard(){
     println("overwrote MONTH on SCORE");
   }
   if (winners.get(0).currentScore == int(gameStats[11])) { // If tie check for ball superiority
-    if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[12])){
+    if (winners.get(0).ballsLeft < Integer.valueOf(gameStats[12])){
     overWriteMonth(gameTime);
     println("overwrote MONTH on TIE");
     }
@@ -258,7 +254,7 @@ public void getLeaderboard(){
     gameStats[19] = gameStats[4];
   }
   if (winners.get(0).currentScore == int(gameStats[16])) { // If tie check for ball superiority
-    if (winners.get(0).ballsLeft > Integer.valueOf(gameStats[17])){
+    if (winners.get(0).ballsLeft < Integer.valueOf(gameStats[17])){
       gameStats[15] = gameStats[0];
       gameStats[16] = gameStats[1];
       gameStats[17] = gameStats[2];

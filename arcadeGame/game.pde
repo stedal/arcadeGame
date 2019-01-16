@@ -231,6 +231,7 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
     listener.madeShot(currPlayerIndex, pinNumber - 3);
 
     players[currPlayerIndex].addPointsToScore(points);
+
     println("onShotMade finished");
   }
 
