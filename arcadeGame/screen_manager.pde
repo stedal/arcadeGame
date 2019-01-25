@@ -9,6 +9,7 @@ class ScreenManager {
   PImage allPlayerScreens[] = new PImage[4];
   PImage allPlayerNumbers[] = new PImage[4];
   PImage waitScreen;
+  PImage highScore;
   PImage allPodiumScreens[] = new PImage[4];
   PImage allLetters[] = new PImage[27];
   PImage smallNum[] = new PImage[11];
@@ -24,6 +25,7 @@ class ScreenManager {
     waitScreen = loadImage("ready_next_player.png");
     enterName = loadImage("enter_name.png");
     leaderBoard = loadImage("leaderboard.png");
+    highScore = loadImage("highscore.png");
     for (int i = 0; i < 4; i++) {
       String imageToLoad1 = "pubstick_playerscreen_" + i + ".png";
       allPlayerScreens[i] = loadImage(imageToLoad1);
@@ -46,6 +48,10 @@ class ScreenManager {
     this.game = game;
   }
 
+  void displayHighScore(){
+    set(0,0, highScore);
+  }
+  
   void displayWaitScreen(){
     set(0, 0, waitScreen);
   }
@@ -118,6 +124,11 @@ class ScreenManager {
     }
   }
   void enterNameScreen() {
+    println("initial letters are: ");
+    if (game.letters.size() > 0) {
+      println("letters larger than 0");
+      println(game.letters.get(0));
+    }
    // create function that shows letter indicator in middle of the screen with
    // the selected initials below
 
@@ -239,6 +250,9 @@ class ScreenManager {
       break;
     case SHOW_PODIUM:
       displayPodium(game.numPlayers);
+      break;
+    case HIGH_SCORE:
+      displayHighScore();
       break;
     case ENTER_NAME:
       //println("show enter name screen");

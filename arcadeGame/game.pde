@@ -7,6 +7,7 @@ enum GameState {
     NEXT_PLAYER,
     ENTER_NAME,
     SHOW_PODIUM,
+    HIGH_SCORE,
     SHOW_LEADERBOARD
 }
 
@@ -119,6 +120,7 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
     println("Here");
     switch(signal) {
     case OK_BUTTON:
+      println("hit green button");
       switch(state) {
       case STANDBY:
         setState(GameState.SHOW_RULES);
@@ -146,23 +148,31 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
         long gameTime = System.currentTimeMillis()/1000; // Seconds since epoch
         long timeSincePlayed = timeSincePlayed(gameTime);
         if (winners.get(0).currentScore > int(gameStats[1])){
-          setState(GameState.ENTER_NAME);
+         // setState(GameState.ENTER_NAME);
+         setState(GameState.HIGH_SCORE);
         }
-        else if ((winners.get(0).currentScore == int(gameStats[1]) &&  (winners.get(0).ballsLeft > Integer.valueOf(gameStats[2])))) {
-          setState(GameState.ENTER_NAME);
+        else if ((winners.get(0).currentScore == int(gameStats[1]) &&  (10 - winners.get(0).ballsLeft < Integer.valueOf(gameStats[2])))) {
+          //setState(GameState.ENTER_NAME);
+          setState(GameState.HIGH_SCORE);
         }
         else if (timeSincePlayed > day) {
-          setState(GameState.ENTER_NAME);
+          //setState(GameState.ENTER_NAME);
+          setState(GameState.HIGH_SCORE);          
         }
         else {
           setState(GameState.SHOW_LEADERBOARD);
         }
         break;
+      case HIGH_SCORE:
+        setState(GameState.ENTER_NAME);
+        break;
       case ENTER_NAME:
-          if (letters.size() == 3) {
-            setState(GameState.SHOW_LEADERBOARD);
-          }
-        else assignLetters();
+        if (letters.size() == 3) {
+          setState(GameState.SHOW_LEADERBOARD);
+        }
+        else {
+          assignLetters();
+        }
         break;
       case SHOW_LEADERBOARD:
         setState(GameState.STANDBY);
@@ -206,6 +216,7 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
   }
   void assignLetters() {
     letters.add(letter);
+    println("wrote to letters");
   }
   void decreaseLetter(){
     if ( letter > 101 ) {
