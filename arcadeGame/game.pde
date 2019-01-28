@@ -64,7 +64,7 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
   }
 
  public void startGame() {
-    players = new Player[numPlayers];
+    players = new Player[numPlayers]; /// takes in 1-4 players
     for (int i = 0; i < numPlayers; i++) {
       players[i] = new Player(10, i, turnDuration);
       players[i].setEventListener(this);

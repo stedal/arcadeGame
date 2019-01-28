@@ -42,8 +42,8 @@ public class Player {
   void addPointsToScore(int points) {
     currentScore += points;
     if (currentScore > 21) {
-      useBall();
       eventListener.busted();
+      useBall();
       currentScore = 14;
     } else if (currentScore == 21) {
       useBall();
@@ -51,7 +51,9 @@ public class Player {
       eventListener.endTurn();
       return;
     }
-    useBall();
+    if (ballsLeft > 0) {
+      useBall();
+    }
   }
 
   //This just updates the timer
