@@ -252,6 +252,9 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
     }
     listener.missedShot(currPlayerIndex);
     players[currPlayerIndex].useBall();
+    if (players[currPlayerIndex].ballsLeft < 1) {
+      endTurn();
+    }
   }
 
   int getPointsForHole(int holeNum) {
