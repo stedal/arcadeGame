@@ -33,10 +33,10 @@ public class Player {
 
   void useBall() {
     ballsLeft--;
-    if (ballsLeft == 0) {
-      //This doesn't make sense to have in this method but im just fixing bugs right now
-      eventListener.endTurn();
-    }
+   //This doesn't make sense to have in this method but im just fixing bugs right now
+   // if (ballsLeft == 0) {
+   //    eventListener.endTurn();
+   //  }
   }
 
   void addPointsToScore(int points) {
@@ -44,16 +44,19 @@ public class Player {
     if (currentScore > 21) {
       eventListener.busted();
       useBall();
+
       currentScore = 14;
     } else if (currentScore == 21) {
-      useBall();
       eventListener.blackjack();
+      useBall();
       eventListener.endTurn();
       return;
     }
-    if (ballsLeft > 0) {
-      useBall();
+    useBall();
+    if (ballsLeft < 1) {
+      eventListener.endTurn();
     }
+
   }
 
   //This just updates the timer

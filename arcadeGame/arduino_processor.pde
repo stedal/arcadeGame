@@ -56,7 +56,7 @@ class ArduinoProcessor {
       }
     }
 // ALL STICKPUTT INSTALLATIONS HAVE LOW LOGIC AT MISS SWITCH
-    if (buttonArduino.digitalRead(8) == Arduino.HIGH) {
+    if (buttonArduino.digitalRead(8) == Arduino.LOW) {
               delay(300);
       listener.onShotMiss();
     }
