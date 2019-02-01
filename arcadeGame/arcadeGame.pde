@@ -39,8 +39,8 @@ void setup() {
   
   // Warm up ADC
   for ( int i = 0; i<4; i++){
-    arduino0.analogRead(0);
-    arduino1.analogRead(0);
+    println("arduino0 at pin 0 is" + arduino0.analogRead(0));
+    println("arduino1 at pin 0 is" + arduino1.analogRead(0));
     delay(1250);
   }
 
@@ -68,14 +68,14 @@ void setup() {
   screenManager = new ScreenManager(game);
   
   // Find arduino with voltage divider and assign it to bottons arduino.
-  if (arduino0.analogRead(0) < 525 && arduino0.analogRead(0) > 475) {
+  if (arduino0.analogRead(0) < 555 && arduino0.analogRead(0) > 475) {
       arduinoProcessor = new ArduinoProcessor (
       arduino0, // buttons
       arduino1, // holes
       game
     );
   }
-  else if (arduino1.analogRead(0) < 525 && arduino1.analogRead(0) > 475) {
+  else if (arduino1.analogRead(0) < 555 && arduino1.analogRead(0) > 475) {
     arduinoProcessor = new ArduinoProcessor (
     arduino1, // buttons
     arduino0, // holess

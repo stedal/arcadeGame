@@ -37,9 +37,10 @@ void draw() {
       print(pin + " low  ");
     }
   }
-  println("arduino0 at pin 14 is: ");
+  println("");
+  println("arduino0 at pin A0 is: ");
   println(arduino0.analogRead(analogPin));
-  println("arduino1 at pin 14 is: ");
+  println("arduino1 at pin A0 is: ");
   println(arduino1.analogRead(analogPin));
   println("");
   delay(1250);
