@@ -11,17 +11,17 @@ ArduinoProcessor arduinoProcessor;
 Game game;
 AnimationManager animationManager;
 ScreenManager screenManager;
+Arduino holes;
+Arduino buttons;
 
 // limit cycles to shut down game.
 int limit_cycles = 4;
 int cycles = 0;
 
 // setup variables for leaderboard time checking
-
 long day = 86400;  // 86400 seconds per day
 long week = 604800;  // 604800 seconds per week
 long month = 2419200;  // 2419200 seconds per month
-
 String[] gameStats = new String[20];
 int[] dayStats = new int[5];
 int[] weekStats = new int[5];
@@ -29,25 +29,36 @@ int[] monthStats = new int[5];
 int[] allTimeStats = new int[5];
 
 void setup() {
-  // FIND ARDUINOS:
-  // for i in Arduino.list():
-  // read arduino voltage at certain pin, assign number, reassign arduino with that number
+  // Variables for arduino assignment
+  int buttonsVoltage = 545; //(5*(10000/20000)*1024); // Voltage divider math for resistance. Resistors are 3k and 10k Ohms.
+  int holesVoltage = 233; //(5*(3000/13000)*1024); // Voltage divider math for resistance. Resistors are 3k and 10k Ohms.
+  Float voltageTolerance = .15;
+
+  for (int i = 0; i < Arduino.list().length; i++) {
+    Arduino temp = new Arduino(this, Arduino.list()[i], 57600);
+    int counter = 0;
+    while (temp.analogRead(0) == 0 || counter < 10){
+    delay(250);
+    counter++;
+    }
+    println("Analog at pin 0 is " + temp.analogRead(0) + " on arduino " + i);
+    if (temp.analogRead(0) < (buttonsVoltage + buttonsVoltage*voltageTolerance) && temp.analogRead(0) > (buttonsVoltage - buttonsVoltage*voltageTolerance)) {
+      buttons = temp;
+    }
+    if (temp.analogRead(0) < (holesVoltage + holesVoltage*voltageTolerance) && temp.analogRead(0) > (holesVoltage - holesVoltage*voltageTolerance)) {
+      holes = temp;
+    }
+  }
 
   animationManager = new AnimationManager(this);
   game = new Game(animationManager);
   screenManager = new ScreenManager(game);
+  arduinoProcessor = new ArduinoProcessor ( buttons, holes, game);
 
-    arduinoProcessor = new ArduinoProcessor (
-    new Arduino(this, Arduino.list()[1], 57600), // holes
-    new Arduino(this, Arduino.list()[0], 57600), // buttons
-    game
-  );
   size(1920, 1080);
   textSize(32);
   frameRate(30);
 }
-
-
 
 void draw() {
   arduinoProcessor.update();
