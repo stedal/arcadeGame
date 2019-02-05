@@ -1,3 +1,6 @@
 data/
+.idea/
 application.windows32/
 application.windows64/
+arcadeGame/data1.txt
+arcadeGame/arcadeGame.iml
