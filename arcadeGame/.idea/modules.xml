@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/pubstick.iml" filepath="$PROJECT_DIR$/.idea/pubstick.iml" />
+      <module fileurl="file://$PROJECT_DIR$/arcadeGame.iml" filepath="$PROJECT_DIR$/arcadeGame.iml" />
     </modules>
   </component>
 </project>

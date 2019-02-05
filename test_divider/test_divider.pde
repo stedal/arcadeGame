@@ -2,6 +2,7 @@ import cc.arduino.*;
 import processing.video.*;
 import processing.serial.*;
 
+
 Arduino arduino0;
 Arduino arduino1;
 
@@ -10,6 +11,10 @@ final int Pins[] = { 10, 11, 12, 13};
 int analogPin = 0;
 
 void setup() {
+
+  
+  println(Serial.list());
+  println(Serial.list()[0]);
   
   arduino0 = new Arduino(this, Arduino.list()[0], 57600); //holes
   arduino1 = new Arduino(this, Arduino.list()[1], 57600);  //buttons

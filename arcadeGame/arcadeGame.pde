@@ -11,84 +11,49 @@ ArduinoProcessor arduinoProcessor;
 Game game;
 AnimationManager animationManager;
 ScreenManager screenManager;
+Arduino holes;
+Arduino buttons;
 
 // limit cycles to shut down game.
 int limit_cycles = 4;
 int cycles = 0;
 
 // setup variables for leaderboard time checking
-
 long day = 86400;  // 86400 seconds per day
 long week = 604800;  // 604800 seconds per week
 long month = 2419200;  // 2419200 seconds per month
-
 String[] gameStats = new String[20];
 int[] dayStats = new int[5];
 int[] weekStats = new int[5];
 int[] monthStats = new int[5];
 int[] allTimeStats = new int[5];
-Arduino arduino0 = new Arduino(this, Arduino.list()[0], 57600);
-Arduino arduino1 = new Arduino(this, Arduino.list()[1], 57600);
-//  arduino0 = new Arduino(this, Arduino.list()[0], 57600);
-//  arduino1 = new Arduino(this, Arduino.list()[1], 57600);
-
 
 void setup() {
-  arduino0.pinMode(0, Arduino.INPUT);
-  arduino1.pinMode(0, Arduino.INPUT);
-  
-  // Warm up ADC
-  for ( int i = 0; i<4; i++){
-    println("arduino0 at pin 0 is" + arduino0.analogRead(0));
-    println("arduino1 at pin 0 is" + arduino1.analogRead(0));
-    delay(1250);
+  // Variables for arduino assignment
+  int buttonsVoltage = 545; //(5*(10000/20000)*1024); // Voltage divider math for resistance. Resistors are 3k and 10k Ohms.
+  int holesVoltage = 233; //(5*(3000/13000)*1024); // Voltage divider math for resistance. Resistors are 3k and 10k Ohms.
+  Float voltageTolerance = .15;
+
+  for (int i = 0; i < Arduino.list().length; i++) {
+    Arduino temp = new Arduino(this, Arduino.list()[i], 57600);
+    int counter = 0;
+    while (temp.analogRead(0) == 0 || counter < 10){
+    delay(250);
+    counter++;
+    }
+    println("Analog at pin 0 is " + temp.analogRead(0) + " on arduino " + i);
+    if (temp.analogRead(0) < (buttonsVoltage + buttonsVoltage*voltageTolerance) && temp.analogRead(0) > (buttonsVoltage - buttonsVoltage*voltageTolerance)) {
+      buttons = temp;
+    }
+    if (temp.analogRead(0) < (holesVoltage + holesVoltage*voltageTolerance) && temp.analogRead(0) > (holesVoltage - holesVoltage*voltageTolerance)) {
+      holes = temp;
+    }
   }
 
- /*
-  //DEBUG
-  for (int i = 0; i < 5; i++){
-    println("Arduino 0");
-    for (int j = 0; j < 6; j++) {
-      int pin =j;
-      print("pin " + pin + " = " + arduino0.analogRead(pin) + " ");
-    }
-    println("");
-    println("Arduino 1");
-    for (int j= 0; j < 6; j ++) {
-      int pin = j;
-      print("pin " + pin + " = " + arduino1.analogRead(pin) + " ");
-    }
-    println("");  
-    delay(1250);
-  };
-  */
-  
   animationManager = new AnimationManager(this);
   game = new Game(animationManager);
   screenManager = new ScreenManager(game);
-  
-  // Find arduino with voltage divider and assign it to bottons arduino.
-  if (arduino0.analogRead(0) < 555 && arduino0.analogRead(0) > 475) {
-      arduinoProcessor = new ArduinoProcessor (
-      arduino0, // buttons
-      arduino1, // holes
-      game
-    );
-  }
-  else if (arduino1.analogRead(0) < 555 && arduino1.analogRead(0) > 475) {
-    arduinoProcessor = new ArduinoProcessor (
-    arduino1, // buttons
-    arduino0, // holess
-    game
-    );
-  };
- /*
-  arduinoProcessor = new ArduinoProcessor (
-    new Arduino(this, Arduino.list()[1], 57600), // holes
-    new Arduino(this, Arduino.list()[0], 57600), // buttons
-    game
-  );
-*/
+  arduinoProcessor = new ArduinoProcessor ( buttons, holes, game);
 
   size(1920, 1080);
   textSize(32);
