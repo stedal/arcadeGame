@@ -15,6 +15,7 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
   final int MAX_NUM_PLAYERS = 4;
   final int turnDuration = 177000; // duration of each turn
   final int holeValues[] = { 1, 2, 3, 5, 7 };
+  float tempTime;
 
   int numPlayers = 1;
   GameState state;
@@ -42,6 +43,13 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
     totalTime = millis() - startTime;
     if (state == GameState.RUNNING) {
       players[currPlayerIndex].update(getGameTime());
+    }
+    if (state == GameState.SHOW_PODIUM) { // determine if show podium has been shown for longer than ~5 seconds
+      float currentTime = millis();
+      println("tempTime: " + tempTime + " currentTime: " + currentTime);
+      if (((currentTime - tempTime)/1000) > 24) {
+        setState(GameState.HIGH_SCORE);
+      }
     }
   }
 
@@ -93,7 +101,7 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
      if (currPlayerIndex >= numPlayers) {
       println("finished");
       setState(GameState.FINISHED);
-
+      writeTime();
       //setState(GameState.STANDBY);
     } else {
       println("setting to next player");
@@ -113,6 +121,10 @@ public class Game implements PlayerEventListener, ArduinoEventListener {
   void setState(GameState newState) {
     state = newState;
     listener.updatedGameState(newState);
+  }
+  
+  void writeTime(){
+   tempTime = millis(); 
   }
 
 

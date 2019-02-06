@@ -30,8 +30,8 @@ int[] allTimeStats = new int[5];
 
 void setup() {
   // Variables for arduino assignment
-  int buttonsVoltage = 545; //(5*(10000/20000)*1024); // Voltage divider math for resistance. Resistors are 3k and 10k Ohms.
-  int holesVoltage = 233; //(5*(3000/13000)*1024); // Voltage divider math for resistance. Resistors are 3k and 10k Ohms.
+  int buttonsVoltage = 545; //((10000/20000)*1024); // Voltage divider math for resistance. Resistors are 3k and 10k Ohms.
+  int holesVoltage = 233; //((3000/13000)*1024); // Voltage divider math for resistance. Resistors are 3k and 10k Ohms.
   Float voltageTolerance = .15;
 
   for (int i = 0; i < Arduino.list().length; i++) {
